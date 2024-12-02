@@ -10,28 +10,28 @@ export default async function ArticlesPage({
 }: {
   searchParams: { page?: string }
 }) {
-  const pageNumber = searchParams?.page ? parseInt(searchParams.page) : 1
+  const pageParam = searchParams?.page
+  const pageNumber = pageParam ? parseInt(pageParam) : 1
   const { articles, totalPages } = getArticles(pageNumber, 6)
   const categories = getCategories()
   const tags = getTags()
 
   return (
-    <div className="container mx-auto px-4 pt-24 pb-8">
-      <h1 className="text-3xl font-bold mb-8">Articles</h1>
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold mb-8">DevOps Articles</h1>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div className="md:col-span-3">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {articles.map((article) => (
               <Card key={article.id} className="flex flex-col">
                 <CardHeader className="p-0">
-                  <div className="relative w-full h-48">
-                    <Image
-                      src={`/placeholder.svg`}
-                      alt={article.title}
-                      fill
-                      className="object-cover rounded-t-lg"
-                    />
-                  </div>
+                  <Image
+                    src={article.thumbnail || 'https://placehold.co/300x200'}
+                    alt={article.title}
+                    width={300}
+                    height={200}
+                    className="w-full h-48 object-cover"
+                  />
                 </CardHeader>
                 <CardContent className="flex-grow p-4">
                   <CardTitle className="text-xl mb-2">
@@ -39,7 +39,9 @@ export default async function ArticlesPage({
                       {article.title}
                     </Link>
                   </CardTitle>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{article.excerpt}</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                    {article.excerpt}
+                  </p>
                   <div className="flex flex-wrap gap-2">
                     {article.tags.map((tag) => (
                       <Badge key={tag} variant="secondary">
