@@ -1,52 +1,60 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { StarIcon, Trash2 } from 'lucide-react'
+import TestimonialForm from "@/components/TestimonialForm"
+import { PrismaClient } from '@prisma/client'
 import { Button } from "@/components/ui/button"
-import { StarIcon } from 'lucide-react'
+import { toast } from "sonner"
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server"
+import DeleteButton from "@/components/DeleteButton"
 
-const testimonials = [
-  {
-    name: "Alice Johnson",
-    role: "DevOps Engineer",
-    company: "TechCorp",
-    avatar: "/avatars/alice.jpg",
-    content: "Implementing CI/CD pipelines with Jenkins and GitLab CI helped us reduce deployment times by 50%. The resources on DevOpsHub were instrumental in our success.",
-    rating: 5,
-  },
-  {
-    name: "Bob Smith",
-    role: "Software Developer",
-    company: "InnoSoft",
-    avatar: "/avatars/bob.jpg",
-    content: "The Docker tutorials on DevOpsHub allowed our team to containerize our application effortlessly. We saw a significant improvement in our development workflow.",
-    rating: 4,
-  },
-  {
-    name: "Carol Davis",
-    role: "IT Manager",
-    company: "DataDynamics",
-    avatar: "/avatars/carol.jpg",
-    content: "DevOpsHub's Kubernetes guides helped us scale our microservices architecture efficiently. Our system's reliability has improved dramatically since implementation.",
-    rating: 5,
-  },
-]
+const prisma = new PrismaClient()
 
-export default function TestimonialsPage() {
+// Define the Testimonial type locally instead of importing from Prisma
+interface Testimonial {
+  id: string;
+  name: string;
+  role: string;
+  company: string;
+  content: string;
+  rating: number;
+  userId: string;
+  createdAt: Date;
+}
+
+async function TestimonialsPage() {
+  const { getUser } = getKindeServerSession()
+  const user = await getUser()
+  const testimonials = await prisma.testimonial.findMany({
+    orderBy: {
+      createdAt: 'desc'
+    }
+  });
+
   return (
     <div className="container mx-auto px-4 pt-24 pb-8">
       <h1 className="text-3xl font-bold mb-8">Success Stories</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {testimonials.map((testimonial, index) => (
-          <Card key={index}>
+        {testimonials.map((testimonial: Testimonial) => (
+          <Card key={testimonial.id}>
             <CardHeader>
-              <div className="flex items-center space-x-4">
-                <Avatar>
-                  <AvatarImage src={testimonial.avatar} alt={testimonial.name} />
-                  <AvatarFallback>{testimonial.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
-                </Avatar>
-                <div>
-                  <CardTitle>{testimonial.name}</CardTitle>
-                  <p className="text-sm text-gray-500">{testimonial.role} at {testimonial.company}</p>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-4">
+                  <Avatar>
+                    <AvatarFallback>
+                      {testimonial.name.split(' ').map((n: string) => n[0]).join('')}
+                    </AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <CardTitle>{testimonial.name}</CardTitle>
+                    <p className="text-sm text-gray-500">{testimonial.role} at {testimonial.company}</p>
+                  </div>
                 </div>
+                <DeleteButton
+                  testimonialId={testimonial.id}
+                  userId={testimonial.userId}
+                  currentUserId={user.id}
+                />
               </div>
             </CardHeader>
             <CardContent>
@@ -60,12 +68,10 @@ export default function TestimonialsPage() {
           </Card>
         ))}
       </div>
-      <div className="mt-12 text-center">
-        <h2 className="text-2xl font-bold mb-4">Share Your Success Story</h2>
-        <p className="mb-4">Has DevOps transformed your workflow? We'd love to hear about it!</p>
-        <Button>Submit Your Testimonial</Button>
-      </div>
+      <TestimonialForm />
     </div>
   )
 }
+
+export default TestimonialsPage
 

@@ -26,15 +26,19 @@ export function Footer() {
             <div className="flex space-x-4">
               <Link href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100">
                 <Facebook className="h-5 w-5" />
+                <span className="sr-only">Facebook</span>
               </Link>
               <Link href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100">
                 <Twitter className="h-5 w-5" />
+                <span className="sr-only">Twitter</span>
               </Link>
               <Link href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100">
                 <Linkedin className="h-5 w-5" />
+                <span className="sr-only">LinkedIn</span>
               </Link>
               <Link href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100">
                 <Github className="h-5 w-5" />
+                <span className="sr-only">GitHub</span>
               </Link>
             </div>
           </div>
@@ -47,7 +51,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-slate-200 dark:border-slate-800 text-center">
-          <p className="text-sm text-slate-600 dark:text-slate-400">&copy; 2023 DevOpsHub. All rights reserved.</p>
+          <p className="text-sm text-slate-600 dark:text-slate-400">&copy; {new Date().getFullYear()} DevOpsHub. All rights reserved.</p>
         </div>
       </div>
     </footer>
