@@ -74,4 +74,3 @@ async function TestimonialsPage() {
 }
 
 export default TestimonialsPage
-
