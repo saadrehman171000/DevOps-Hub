@@ -1,10 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { StarIcon, Trash2 } from 'lucide-react'
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { StarIcon } from 'lucide-react'
 import TestimonialForm from "@/components/TestimonialForm"
 import { PrismaClient } from '@prisma/client'
-import { Button } from "@/components/ui/button"
-import { toast } from "sonner"
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server"
 import DeleteButton from "@/components/DeleteButton"
 

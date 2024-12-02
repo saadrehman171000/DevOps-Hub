@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Skeleton } from "@/components/ui/skeleton"
 import { toast } from "sonner"
+import Link from 'next/link'
 
 export default function ProfilePage() {
   const { user, isLoading } = useKindeBrowserClient()
@@ -73,7 +74,7 @@ export default function ProfilePage() {
             <h2 className="text-xl font-semibold">Not Authenticated</h2>
             <p className="text-muted-foreground mt-2">Please log in to view your profile.</p>
             <Button asChild className="mt-4">
-              <a href="/api/auth/login">Log In</a>
+              <Link href="/api/auth/login">Log In</Link>
             </Button>
           </CardContent>
         </Card>

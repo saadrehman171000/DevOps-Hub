@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from 'react'
-import { getTools, getToolCategories, Tool } from '@/lib/tools'
+import { getTools, getToolCategories } from '@/lib/tools'
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"

@@ -9,13 +9,6 @@ import { toast } from "sonner"
 export default function TestimonialForm() {
   const [form, setForm] = useState({ role: '', company: '', content: '', rating: 5 })
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [testimonials, setTestimonials] = useState([])
-
-  const refreshTestimonials = async () => {
-    const response = await fetch('/api/testimonials')
-    const data = await response.json()
-    setTestimonials(data)
-  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

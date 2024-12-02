@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server"
 import { PrismaClient } from '@prisma/client'
-import { toast } from "sonner"
 
 const prisma = new PrismaClient()
 
@@ -11,7 +10,7 @@ export async function GET() {
       orderBy: { createdAt: 'desc' }
     });
     return NextResponse.json(testimonials);
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: 'Failed to fetch testimonials' }, { status: 500 });
   }
 }

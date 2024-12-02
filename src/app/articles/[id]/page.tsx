@@ -1,9 +1,40 @@
 import { getArticleById } from '@/lib/articles'
 import { Badge } from '@/components/ui/badge'
 import { notFound } from 'next/navigation'
+import { Metadata } from 'next'
 
-export default function ArticlePage({ params }: { params: { id: string } }) {
-  const article = getArticleById(params.id)
+// Import specific Next.js types
+import { ResolvingMetadata } from 'next'
+
+type PageProps = {
+  params: { id: string }
+}
+
+export async function generateMetadata(
+  { params }: PageProps,
+  _parent: ResolvingMetadata
+): Promise<Metadata> {
+  const article = await getArticleById(params.id)
+  
+  if (!article) {
+    return {
+      title: 'Article Not Found'
+    }
+  }
+
+  return {
+    title: article.title,
+    description: article.content.slice(0, 160)
+  }
+}
+
+// Explicitly type the page component as a React Server Component
+import { ReactElement } from 'react'
+
+export default async function ArticlePage(
+  { params }: PageProps
+): Promise<ReactElement> {
+  const article = await getArticleById(params.id)
 
   if (!article) {
     notFound()
