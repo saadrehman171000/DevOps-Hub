@@ -1,3 +1,5 @@
+"use client"
+import { useEffect } from 'react';
 import AuthRedirect from '@/components/AuthRedirect'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -7,142 +9,147 @@ import Image from "next/image"
 
 const features = [
   {
-    title: "Infrastructure as Code",
-    description: "Learn to manage your infrastructure using code with tools like Terraform and Ansible",
-    icon: Server,
-  },
-  {
     title: "Continuous Integration",
-    description: "Master CI/CD pipelines with Jenkins, GitHub Actions, and GitLab CI",
-    icon: GitBranch,
+    description: "Automate your build and test processes for faster development cycles.",
+    icon: GitBranch
   },
   {
-    title: "Container Orchestration",
-    description: "Deploy and manage containers at scale with Kubernetes and Docker",
-    icon: Database,
+    title: "Containerization",
+    description: "Master Docker and Kubernetes for efficient application deployment.",
+    icon: Code2
   },
   {
-    title: "Automation",
-    description: "Automate repetitive tasks and streamline your development workflow",
-    icon: Terminal,
+    title: "Infrastructure as Code",
+    description: "Manage your infrastructure with Terraform and Ansible.",
+    icon: Server
   },
   {
-    title: "Best Practices",
-    description: "Learn industry-standard DevOps practices and methodologies",
-    icon: Code2,
+    title: "Monitoring and Logging",
+    description: "Implement robust solutions for system observability.",
+    icon: Terminal
   },
   {
-    title: "Community",
-    description: "Join a community of DevOps engineers and share your knowledge",
-    icon: Users,
+    title: "Cloud Platforms",
+    description: "Gain expertise in AWS, Azure, and Google Cloud Platform.",
+    icon: Database
   },
-]
+  {
+    title: "Collaboration",
+    description: "Learn best practices for effective DevOps teamwork.",
+    icon: Users
+  }
+];
 
 const benefits = [
   {
-    title: "Learn at Your Pace",
-    description: "Access course materials 24/7 and learn at your own speed",
-    icon: CheckCircle,
+    title: "Hands-on Learning",
+    description: "Practice with real-world projects and scenarios.",
+    icon: CheckCircle
   },
   {
-    title: "Hands-on Experience",
-    description: "Practice with real-world projects and scenarios",
-    icon: Rocket,
+    title: "Expert Instructors",
+    description: "Learn from industry professionals with years of experience.",
+    icon: Trophy
   },
   {
-    title: "Career Growth",
-    description: "Advance your career with in-demand DevOps skills",
-    icon: Trophy,
-  },
-]
+    title: "Career Advancement",
+    description: "Boost your career prospects in the growing field of DevOps.",
+    icon: Rocket
+  }
+];
 
 export default function Home() {
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in');
+        }
+      });
+    });
+
+    document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       <AuthRedirect />
       <div className="flex flex-col min-h-screen">
         {/* Hero Section */}
-        <section className="relative w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-gradient-to-b from-primary via-primary/90 to-primary/80">
-          <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:60px_60px]" />
+        <section className="relative w-full py-20 md:py-32 lg:py-48 bg-gradient-custom overflow-hidden">
+          <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:20px_20px]" />
           <div className="container relative px-4 md:px-6">
-            <div className="flex flex-col items-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter text-primary-foreground sm:text-4xl md:text-5xl lg:text-6xl/none">
-                  Master DevOps Engineering
-                </h1>
-                <p className="mx-auto max-w-[700px] text-primary-foreground/90 md:text-xl">
-                  Your one-stop resource for learning DevOps tools, practices, and methodologies. Start your journey to becoming a DevOps expert today.
-                </p>
-              </div>
-              <div className="space-x-4">
-                <Button asChild size="lg" className="bg-background text-primary hover:bg-background/90">
+            <div className="flex flex-col items-center space-y-8 text-center">
+              <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl animate-fade-in">
+                Master DevOps Engineering
+              </h1>
+              <p className="max-w-[700px] text-lg text-white/80 md:text-xl animate-slide-up">
+                Your one-stop resource for learning DevOps tools, practices, and methodologies. Start your journey to becoming a DevOps expert today.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 animate-slide-up">
+                <Button 
+                  asChild 
+                  size="lg" 
+                  className="bg-white text-amber-600 hover:bg-amber-50 hover:text-amber-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                >
                   <Link href="/articles">
                     Get Started <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="text-primary-foreground border-primary-foreground hover:bg-primary-foreground/10">
+                <Button 
+                  asChild 
+                  variant="outline" 
+                  size="lg" 
+                  className="border-2 border-white bg-transparent text-white hover:bg-white hover:text-amber-600 transition-all duration-300"
+                >
                   <Link href="/about">Learn More</Link>
                 </Button>
               </div>
             </div>
           </div>
-          <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white dark:from-gray-900" />
+          <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-background to-transparent" />
         </section>
 
         {/* Stats Section */}
-        <section className="py-12 bg-white dark:bg-gray-900">
+        <section className="py-16 bg-white dark:bg-gray-900">
           <div className="container px-4 md:px-6">
             <div className="grid grid-cols-1 gap-8 md:grid-cols-3 items-center justify-center text-center">
-              <div className="space-y-2">
-                <h3 className="text-4xl font-bold text-purple-600 dark:text-purple-400">10K+</h3>
-                <p className="text-gray-600 dark:text-gray-400">Active Learners</p>
-              </div>
-              <div className="space-y-2">
-                <h3 className="text-4xl font-bold text-purple-600 dark:text-purple-400">500+</h3>
-                <p className="text-gray-600 dark:text-gray-400">Video Tutorials</p>
-              </div>
-              <div className="space-y-2">
-                <h3 className="text-4xl font-bold text-purple-600 dark:text-purple-400">95%</h3>
-                <p className="text-gray-600 dark:text-gray-400">Success Rate</p>
-              </div>
+              {[
+                { number: "10K+", label: "Active Learners" },
+                { number: "500+", label: "Video Tutorials" },
+                { number: "95%", label: "Success Rate" },
+              ].map((stat, index) => (
+                <div key={index} className="space-y-2 animate-on-scroll">
+                  <h3 className="text-4xl font-bold text-gradient">{stat.number}</h3>
+                  <p className="text-gray-500 dark:text-gray-400">{stat.label}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
         {/* Features Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-50 dark:bg-gray-800">
+        <section className="w-full py-20 bg-gray-50 dark:bg-gray-800">
           <div className="container px-4 md:px-6">
-            <div className="grid items-center gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
-              <div className="flex flex-col justify-center space-y-4">
-                <div className="space-y-2">
-                  <div className="inline-block rounded-lg bg-purple-100 dark:bg-purple-900/30 px-3 py-1 text-sm text-purple-600 dark:text-purple-400">
-                    Features
-                  </div>
-                  <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight text-gray-900 dark:text-white">
-                    Everything you need to master DevOps
-                  </h2>
-                  <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                    Our platform provides comprehensive resources and tools to help you become a proficient DevOps engineer.
-                  </p>
-                </div>
-              </div>
-              <div className="mx-auto w-full max-w-[500px] aspect-video relative rounded-xl overflow-hidden">
-                <Image 
-                  src="/placeholder.svg?height=400&width=600" 
-                  alt="DevOps Platform Preview"
-                  width={600}
-                  height={400}
-                  className="object-cover"
-                />
-              </div>
+            <div className="text-center mb-12 animate-on-scroll">
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl md:text-5xl">
+                Everything you need to master DevOps
+              </h2>
+              <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
+                Our platform provides comprehensive resources and tools to help you become a proficient DevOps engineer.
+              </p>
             </div>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-12">
-              {features.map((feature) => (
-                <Card key={feature.title} className="relative overflow-hidden bg-white dark:bg-gray-800 hover:shadow-lg transition-shadow">
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {features.map((feature, index) => (
+                <Card key={feature.title} className="relative overflow-hidden bg-white dark:bg-gray-900 hover-lift card-shadow animate-on-scroll">
                   <CardContent className="p-6">
-                    <feature.icon className="h-12 w-12 mb-4 text-purple-600 dark:text-purple-400" />
-                    <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">{feature.title}</h3>
-                    <p className="text-gray-500 dark:text-gray-400">{feature.description}</p>
+                    <feature.icon className="h-12 w-12 mb-4 text-amber-500" />
+                    <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">{feature.title}</h3>
+                    <p className="text-gray-600 dark:text-gray-300">{feature.description}</p>
                   </CardContent>
                 </Card>
               ))}
@@ -151,20 +158,22 @@ export default function Home() {
         </section>
 
         {/* Benefits Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-white dark:bg-gray-900">
+        <section className="w-full py-20 bg-white dark:bg-gray-900">
           <div className="container px-4 md:px-6">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl text-gray-900 dark:text-white">Why Choose DevOpsHub?</h2>
-              <p className="mt-4 text-gray-500 dark:text-gray-400 md:text-xl">
+            <div className="text-center mb-12 animate-on-scroll">
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl md:text-5xl">
+                Why Choose DevOpsHub?
+              </h2>
+              <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
                 Accelerate your learning with our comprehensive platform
               </p>
             </div>
             <div className="grid gap-8 md:grid-cols-3">
-              {benefits.map((benefit) => (
-                <div key={benefit.title} className="flex flex-col items-center text-center p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                  <benefit.icon className="h-12 w-12 mb-4 text-purple-600 dark:text-purple-400" />
-                  <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">{benefit.title}</h3>
-                  <p className="text-gray-500 dark:text-gray-400">{benefit.description}</p>
+              {benefits.map((benefit, index) => (
+                <div key={benefit.title} className="flex flex-col items-center text-center p-6 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover-lift card-shadow animate-on-scroll">
+                  <benefit.icon className="h-12 w-12 mb-4 text-amber-500" />
+                  <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">{benefit.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-300">{benefit.description}</p>
                 </div>
               ))}
             </div>
@@ -172,22 +181,29 @@ export default function Home() {
         </section>
 
         {/* CTA Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-purple-600 dark:bg-purple-900">
+        <section className="w-full py-20 bg-gradient-custom">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl text-white">
-                  Ready to start your DevOps journey?
-                </h2>
-                <p className="max-w-[600px] text-gray-200 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Join thousands of engineers who are transforming their careers with DevOpsHub.
-                </p>
-              </div>
-              <div className="space-x-4">
-                <Button asChild className="bg-white text-purple-700 hover:bg-gray-100 hover:text-purple-800">
+              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl animate-on-scroll">
+                Ready to start your DevOps journey?
+              </h2>
+              <p className="max-w-[600px] text-lg text-white/80 md:text-xl animate-on-scroll">
+                Join thousands of engineers who are transforming their careers with DevOpsHub.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 mt-8 animate-on-scroll">
+                <Button 
+                  asChild 
+                  size="lg"
+                  className="bg-white text-amber-600 hover:bg-amber-50 hover:text-amber-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                >
                   <Link href="/tools">Explore Tools</Link>
                 </Button>
-                <Button asChild variant="outline" className="text-white border-white hover:bg-white/10">
+                <Button 
+                  asChild 
+                  variant="outline" 
+                  size="lg"
+                  className="border-2 border-white bg-transparent text-white hover:bg-white hover:text-amber-600 transition-all duration-300"
+                >
                   <Link href="/resources">View Resources</Link>
                 </Button>
               </div>

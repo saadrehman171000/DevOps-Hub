@@ -43,10 +43,10 @@ export default function Navbar() {
         <div className="flex items-center space-x-4">
           <Link 
             href="/profile" 
-            className="flex items-center space-x-2 hover:text-purple-600 transition-colors"
+            className="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-200"
           >
-            <User className="h-5 w-5 text-gray-600 dark:text-gray-300" />
-            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+            <User className="h-5 w-5" />
+            <span className="text-sm font-medium">
               {user.given_name || user.email}
             </span>
           </Link>
@@ -54,7 +54,7 @@ export default function Navbar() {
             <Button 
               variant="outline" 
               size="sm"
-              className="text-red-600 border-red-600 hover:bg-red-600 hover:text-white dark:text-red-400 dark:border-red-400 dark:hover:bg-red-400 dark:hover:text-gray-900 transition-all duration-200"
+              className="border-red-500 text-red-500 hover:bg-red-500 hover:text-white dark:border-red-400 dark:text-red-400 dark:hover:bg-red-400 dark:hover:text-gray-900 transition-all duration-200"
             >
               Log Out
             </Button>
@@ -69,7 +69,7 @@ export default function Navbar() {
           <Button 
             variant="outline" 
             size="sm"
-            className="text-purple-600 border-purple-600 hover:bg-purple-600 hover:text-white dark:text-purple-400 dark:border-purple-400 dark:hover:bg-purple-400 dark:hover:text-gray-900 transition-all duration-200"
+            className="border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-white dark:border-amber-400 dark:text-amber-400 dark:hover:bg-amber-400 dark:hover:text-gray-900 transition-all duration-200"
           >
             Log In
           </Button>
@@ -77,7 +77,7 @@ export default function Navbar() {
         <RegisterLink>
           <Button 
             size="sm"
-            className="bg-purple-600 hover:bg-purple-700 text-white transition-all duration-200 transform hover:scale-105"
+            className="bg-amber-500 text-white hover:bg-amber-600 dark:bg-amber-400 dark:text-gray-900 dark:hover:bg-amber-500 transition-all duration-200"
           >
             Sign Up
           </Button>
@@ -88,13 +88,13 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-background/95 backdrop-blur-sm border-b border-border' : 'bg-transparent'
+      isScrolled ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-md' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20">
+        <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 flex items-center">
-              <span className="text-2xl font-bold text-primary">DevOpsHub</span>
+              <span className="text-2xl font-bold text-gradient">DevOpsHub</span>
             </Link>
           </div>
           <div className="hidden md:flex items-center justify-center flex-1">
@@ -102,7 +102,7 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-purple-600 dark:text-gray-300 dark:hover:text-purple-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200"
+                className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200"
               >
                 {item.name}
               </Link>
@@ -113,7 +113,7 @@ export default function Navbar() {
               variant="ghost" 
               size="sm" 
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400"
+              className="text-gray-700 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200"
             >
               {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
@@ -124,14 +124,14 @@ export default function Navbar() {
               variant="ghost" 
               size="sm" 
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 mr-2"
+              className="text-gray-700 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200 mr-2"
             >
               {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
             <Button 
               variant="ghost" 
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400"
+              className="text-gray-700 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
@@ -140,12 +140,12 @@ export default function Navbar() {
       </div>
       {isMenuOpen && (
         <div className="md:hidden bg-white dark:bg-gray-900 shadow-lg">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <div className="px-2 pt-2 pb-3 space-y-1">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-purple-600 dark:text-gray-300 dark:hover:text-purple-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200"
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}

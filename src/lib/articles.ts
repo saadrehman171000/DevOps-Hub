@@ -20,7 +20,7 @@ export const articles: Article[] = [
     date: '2023-05-15',
     category: 'CI/CD',
     tags: ['DevOps', 'Automation', 'CI/CD'],
-    thumbnail: '/placeholder.svg?height=200&width=300',
+    thumbnail: 'https://www.synopsys.com/content/dam/synopsys/sig-assets/images/cicd.jpg.imgw.850.x.jpg',
   },
   {
     id: '2',
@@ -31,7 +31,7 @@ export const articles: Article[] = [
     date: '2023-06-01',
     category: 'CI/CD',
     tags: ['Jenkins', 'CI/CD', 'Automation'],
-    thumbnail: '/placeholder.svg?height=200&width=300',
+    thumbnail: 'https://www.jenkins.io/images/logos/jenkins/jenkins.png',
   },
   {
     id: '3',
@@ -42,7 +42,7 @@ export const articles: Article[] = [
     date: '2023-06-15',
     category: 'Containerization',
     tags: ['Docker', 'Containers', 'DevOps'],
-    thumbnail: '/placeholder.svg?height=200&width=300',
+    thumbnail: 'https://www.docker.com/wp-content/uploads/2022/03/vertical-logo-monochromatic.png',
   },
   {
     id: '4',
@@ -53,7 +53,7 @@ export const articles: Article[] = [
     date: '2023-07-01',
     category: 'Orchestration',
     tags: ['Kubernetes', 'Containers', 'DevOps'],
-    thumbnail: '/placeholder.svg?height=200&width=300',
+    thumbnail: 'https://kubernetes.io/images/kubernetes-horizontal-color.png',
   },
   {
     id: '5',
@@ -64,7 +64,7 @@ export const articles: Article[] = [
     date: '2023-07-15',
     category: 'Infrastructure',
     tags: ['Terraform', 'IaC', 'Cloud'],
-    thumbnail: '/placeholder.svg?height=200&width=300',
+    thumbnail: 'https://www.datocms-assets.com/2885/1620155116-brandhcterraformverticalcolor.svg',
   },
 ];
 
