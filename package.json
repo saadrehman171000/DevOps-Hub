@@ -11,6 +11,13 @@
     "test:watch": "jest --watch"
   },
   "devDependencies": {
-    "eslint": "^9.16.0"
+    "eslint": "^8.0.0",
+    "eslint-config-next": "^12.0.0",
+    "jest": "^27.0.0",
+    "babel-jest": "^27.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "next": "^12.0.0"
   }
 }
