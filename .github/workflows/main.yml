@@ -1,119 +1,51 @@
-   name: CI/CD Pipeline
+name: CI/CD Pipeline
 
-   on:
-     push:
-       branches: [ master ]
-     pull_request:
-       branches: [ master ]
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
-   jobs:
-     lint:
-       name: Code Linting
-       runs-on: ubuntu-latest
-       steps:
-         - uses: actions/checkout@v3
-         
-         - name: Setup Node.js
-           uses: actions/setup-node@v3
-           with:
-             node-version: '18'
-             cache: 'npm'
-         
-         - name: Install dependencies
-           run: |
-             npm install
-             npm install -D eslint-config-next@latest
-             npm install -D @next/eslint-plugin-next
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - run: npm ci
+      - run: npm test
 
-     test:
-       name: Unit Tests
-       runs-on: ubuntu-latest
-       steps:
-         - uses: actions/checkout@v3
-         
-         - name: Setup Node.js
-           uses: actions/setup-node@v3
-           with:
-             node-version: '18'
-             cache: 'npm'
-         
-         - name: Install dependencies
-           run: |
-             npm install
-             npm install -D next@latest
-             npm install -D @babel/core @babel/preset-env @babel/preset-react
-             npm install -D @babel/preset-typescript
-             npm install -D jest jest-environment-jsdom @testing-library/react @testing-library/jest-dom
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - run: npm ci
+      - run: npm run lint
 
-     build:
-       name: Build and Push Docker Image
-       needs: [lint, test]
-       runs-on: ubuntu-latest
-       if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-       steps:
-         - uses: actions/checkout@v3
-         
-         - name: Set up Docker Buildx
-           uses: docker/setup-buildx-action@v2
-         
-         - name: Login to Docker Hub
-           uses: docker/login-action@v2
-           with:
-             username: ${{ secrets.DOCKERHUB_USERNAME }}
-             password: ${{ secrets.DOCKERHUB_TOKEN }}
-         
-         - name: Build and push
-           uses: docker/build-push-action@v4
-           with:
-             context: .
-             push: true
-             tags: saadrehman17100/devopshub-web:latest
-
-     deploy:
-       name: Deploy to Kubernetes
-       needs: [build]
-       runs-on: ubuntu-latest
-       if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-       steps:
-         - uses: actions/checkout@v3
-         
-         - name: Install Terraform
-           uses: hashicorp/setup-terraform@v2
-         
-         - name: Configure kubectl
-           uses: azure/k8s-set-context@v3
-           with:
-             method: kubeconfig
-             kubeconfig: ${{ secrets.KUBE_CONFIG }}
-         
-         - name: Deploy to Kubernetes
-           working-directory: terraform/environments/dev
-           run: |
-             terraform init
-             terraform apply -auto-approve
-           env:
-             TF_VAR_postgres_password: ${{ secrets.POSTGRES_PASSWORD }}
-             TF_VAR_kinde_client_secret: ${{ secrets.KINDE_CLIENT_SECRET }}
-
-     docker:
-       name: Build and Push Docker image
-       needs: [test, lint]  # This ensures tests and lint pass before building
-       runs-on: ubuntu-latest
-       steps:
-         - uses: actions/checkout@v3
-         
-         - name: Set up Docker Buildx
-           uses: docker/setup-buildx-action@v2
-         
-         - name: Login to Docker Hub
-           uses: docker/login-action@v2
-           with:
-             username: ${{ secrets.DOCKERHUB_USERNAME }}
-             password: ${{ secrets.DOCKERHUB_TOKEN }}
-         
-         - name: Build and push
-           uses: docker/build-push-action@v4
-           with:
-             context: .
-             push: true
-             tags: ${{ secrets.DOCKERHUB_USERNAME }}/devopshub-web:latest
+  docker:
+    name: Build and Push Docker image
+    needs: [test, lint]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      
+      - name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/devopshub-web:latest

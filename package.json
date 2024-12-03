@@ -14,7 +14,8 @@
     "next": "^14.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "@prisma/client": "^6.0.0"
+    "@prisma/client": "^6.0.0",
+    "@babel/preset-typescript": "^7.22.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -23,7 +24,13 @@
     "jest-environment-jsdom": "^29.0.0",
     "identity-obj-proxy": "^3.0.0",
     "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.22.0",
+    "@babel/preset-react": "^7.22.0",
     "babel-jest": "^29.0.0",
+    "typescript": "^5.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@types/node": "^20.0.0",
     "prisma": "^6.0.0"
   }
 }
