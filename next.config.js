@@ -1,24 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
-  typescript: {
-    ignoreBuildErrors: true,
+  swcMinify: true,
+  compiler: {
+    // Enables the styled-components plugin
+    styledComponents: true,
   },
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**',
-      },
-    ],
-    domains: [
-      'www.synopsys.com',
-      'www.jenkins.io',
-      'www.docker.com',
-      'kubernetes.io',
-      'www.datocms-assets.com'
-    ]
-  },
+  experimental: {
+    // any experimental features you need
+  }
 }
 
 module.exports = nextConfig 

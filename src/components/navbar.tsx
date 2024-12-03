@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useTheme } from 'next-themes'
 import { Moon, Sun, Menu, X, User } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { RegisterLink, LoginLink, LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components"
+import { RegisterLink, LoginLink, LogoutLink } from "@kinde-oss/kinde-auth-nextjs"
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs"
 
 const navItems = [

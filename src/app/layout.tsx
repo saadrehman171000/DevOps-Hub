@@ -1,4 +1,4 @@
-import { ThemeProvider } from 'next-themes'
+import { ThemeProvider as NextThemeProvider } from 'next-themes'
 import Navbar from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import './globals.css'
@@ -28,18 +28,19 @@ export default async function RootLayout({
   }
 
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} bg-background text-foreground`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+    <html lang="en">
+      <body className={inter.className}>
+        <NextThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className="flex flex-col min-h-screen">
             <Navbar />
-            <main className="flex-grow">{children}</main>
+            <main className="flex-grow">
+              {children}
+            </main>
             <Footer />
           </div>
           <Toaster />
-        </ThemeProvider>
+        </NextThemeProvider>
       </body>
     </html>
   )
 }
-
