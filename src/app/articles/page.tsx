@@ -26,10 +26,11 @@ export default async function ArticlesPage({
                 <CardHeader className="p-0">
                   <div className="relative w-full h-48">
                     <Image
-                      src={`/placeholder.svg`}
+                      src={article.thumbnail}
                       alt={article.title}
                       fill
                       className="object-cover rounded-t-lg"
+                      priority={false}
                     />
                   </div>
                 </CardHeader>

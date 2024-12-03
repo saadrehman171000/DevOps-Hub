@@ -20,7 +20,7 @@ export const articles: Article[] = [
     date: '2023-05-15',
     category: 'CI/CD',
     tags: ['DevOps', 'Automation', 'CI/CD'],
-    thumbnail: 'https://www.synopsys.com/content/dam/synopsys/sig-assets/images/cicd.jpg.imgw.850.x.jpg',
+    thumbnail: 'https://www.parasoft.com/wp-content/uploads/2021/04/CICD_CICD.png',
   },
   {
     id: '2',

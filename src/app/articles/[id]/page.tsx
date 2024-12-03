@@ -6,6 +6,9 @@ import { Metadata } from 'next'
 // Import specific Next.js types
 import { ResolvingMetadata } from 'next'
 
+// Add this near the top of the file
+import Image from 'next/image'
+
 type PageProps = {
   params: { id: string }
 }
@@ -52,6 +55,15 @@ export default async function ArticlePage(
             {tag}
           </Badge>
         ))}
+      </div>
+      <div className="relative w-full h-64 mb-8">
+        <Image
+          src={article.thumbnail}
+          alt={article.title}
+          fill
+          className="object-cover rounded-lg"
+          priority
+        />
       </div>
       <div className="prose dark:prose-invert max-w-none">
         {article.content}
