@@ -9,5 +9,8 @@
     "lint": "next lint",
     "test": "jest",
     "test:watch": "jest --watch"
+  },
+  "devDependencies": {
+    "eslint": "^9.16.0"
   }
 }
