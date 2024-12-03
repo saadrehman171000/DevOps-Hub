@@ -21,13 +21,9 @@
          
          - name: Install dependencies
            run: |
-             npm install
-             npm install -g next
-             npm install --save-dev typescript @types/react @types/node eslint
-             npm install --save-dev eslint-config-next
-             
-         - name: Run ESLint
-           run: npm run lint
+             npm ci
+             npm install -D eslint-config-next@latest
+             npm install -D @next/eslint-plugin-next
 
      test:
        name: Unit Tests
@@ -43,13 +39,11 @@
          
          - name: Install dependencies
            run: |
-             npm install
-             npm install -g jest
-             npm install --save-dev jest-environment-jsdom @testing-library/react @testing-library/jest-dom
-             npm install --save-dev @babel/core @babel/preset-env @babel/preset-react babel-jest
-             
-         - name: Run tests
-           run: npm test
+             npm ci
+             npm install -D next@latest
+             npm install -D @babel/core @babel/preset-env @babel/preset-react
+             npm install -D @babel/preset-typescript
+             npm install -D jest jest-environment-jsdom @testing-library/react @testing-library/jest-dom
 
      build:
        name: Build and Push Docker Image
