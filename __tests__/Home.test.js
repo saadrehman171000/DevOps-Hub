@@ -9,6 +9,10 @@ jest.mock('../src/components/AuthRedirect', () => {
 })
 
 describe('Home', () => {
+  beforeEach(() => {
+    jest.clearAllMocks()
+  })
+
   it('renders without crashing', () => {
     render(<Home />)
     expect(screen.getByTestId('auth-redirect')).toBeInTheDocument()
