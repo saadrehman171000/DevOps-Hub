@@ -21,7 +21,7 @@
          
          - name: Install dependencies
            run: |
-             npm ci
+             npm install
              npm install -D eslint-config-next@latest
              npm install -D @next/eslint-plugin-next
 
@@ -39,7 +39,7 @@
          
          - name: Install dependencies
            run: |
-             npm ci
+             npm install
              npm install -D next@latest
              npm install -D @babel/core @babel/preset-env @babel/preset-react
              npm install -D @babel/preset-typescript
