@@ -3,7 +3,6 @@ FROM node:18-alpine AS builder
 
 WORKDIR /app
 
-
 # Define build arguments
 ARG KINDE_CLIENT_ID
 ARG KINDE_CLIENT_SECRET
