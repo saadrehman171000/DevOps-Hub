@@ -71,9 +71,7 @@ jobs:
           rm -rf node_modules package-lock.json
       
       - name: Install dependencies
-        run: |
-          npm install --package-lock-only
-          npm ci
+        run: npm install
       
       - name: Dependency Check
         uses: dependency-check/Dependency-Check_Action@main
@@ -84,7 +82,6 @@ jobs:
           args: >
             --failOnCVSS 7
             --enableRetired
-            --nodePackageSkipDevDependencies true
 
   # Your existing test job with security tests
   test:
