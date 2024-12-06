@@ -8,8 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
-    "test:watch": "jest --watch",
-    "snyk-test": "snyk test"
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@babel/preset-env": "^7.22.0",
@@ -54,7 +53,6 @@
     "postcss": "^8.4.31",
     "prisma": "^6.0.0",
     "tailwindcss": "^3.3.0",
-    "typescript": "^5.0.0",
-    "snyk": "^2.0.0"
+    "typescript": "^5.0.0"
   }
 }
