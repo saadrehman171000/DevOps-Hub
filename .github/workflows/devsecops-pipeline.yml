@@ -77,7 +77,7 @@ jobs:
           args: >
             --failOnCVSS 7
             --enableRetired
-            --exclude "**/*.tf,**/*.tfstate,**/*.tfvars"
+            --suppression suppression.xml
 
   # Your existing test job with security tests
   test:
