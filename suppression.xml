@@ -2,8 +2,8 @@
 <suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
     <suppress>
         <notes>Suppressing lodash.template vulnerability as it's a transitive dependency</notes>
+        <packageUrl regex="true">^pkg:npm/lodash\.template@.*$</packageUrl>
         <cve>CVE-2021-23337</cve>
-        <cve>GHSA-35jh-r3h4-6jhm</cve>
     </suppress>
     <suppress>
         <notes>Suppressing Terraform provider vulnerabilities as they are not part of the application</notes>
