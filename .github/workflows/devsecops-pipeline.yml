@@ -42,7 +42,11 @@ jobs:
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.projectKey=saadrehman171000_DevOps-Hub \
             -Dsonar.organization=saadrehman171000 \
-            -Dsonar.sources=. \
+            -Dsonar.sources=src \
+            -Dsonar.tests=__tests__ \
+            -Dsonar.test.inclusions=**/*.test.js,**/*.test.ts,**/*.spec.js,**/*.spec.ts \
+            -Dsonar.exclusions=**/node_modules/**,**/coverage/**,**/build/**,**/dist/** \
+            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info \
             -Dsonar.branch.name=features \
             -Dsonar.login=${{ secrets.SONAR_TOKEN }}
         env:
