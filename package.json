@@ -9,7 +9,6 @@
     "lint": "next lint",
     "test": "jest",
     "test:watch": "jest --watch",
-    "security-test": "jest-security-scanner",
     "snyk-test": "snyk test"
   },
   "dependencies": {
@@ -56,8 +55,6 @@
     "prisma": "^6.0.0",
     "tailwindcss": "^3.3.0",
     "typescript": "^5.0.0",
-    "jest-security-scanner": "1.0.0",
-    "@security/nodejs-scanner": "1.0.0",
-    "snyk": "1.1234.0"
+    "snyk": "^2.0.0"
   }
 }
