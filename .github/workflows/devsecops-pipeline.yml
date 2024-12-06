@@ -36,8 +36,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           args: >
-            -Dsonar.projectKey=your-project-key
-            -Dsonar.organization=your-org
+            -Dsonar.projectKey=devops-hub
+            -Dsonar.organization=devops-hub
             -Dsonar.sources=.
             -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
 
