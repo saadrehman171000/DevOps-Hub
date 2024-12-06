@@ -29,16 +29,18 @@ jobs:
     needs: [secret-scan]
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Important for better SonarCloud analysis
       
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
+        uses: SonarSource/sonarqube-scan-action@v4.1.0  # Updated to the newer action
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           args: >
-            -Dsonar.projectKey=your-project-key
-            -Dsonar.organization=your-org
+            -Dsonar.projectKey=devops-hub
+            -Dsonar.organization=devops-hub
             -Dsonar.sources=.
             -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
 
@@ -199,4 +201,4 @@ jobs:
               ]
             }
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} 
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
