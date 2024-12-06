@@ -33,25 +33,22 @@ jobs:
           fetch-depth: 0
           ref: features
       
-      - name: Setup Java
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: '17'
+      - name: Setup SonarCloud scanner
+        uses: warchant/setup-sonar-scanner@v7
       
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
+        run: |
+          sonar-scanner \
+            -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.projectKey=saadrehman171000_DevOps-Hub \
+            -Dsonar.organization=saadrehman171000 \
+            -Dsonar.sources=src \
+            -Dsonar.branch.name=features \
+            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info \
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          args: >
-            -Dsonar.projectKey=saadrehman171000_DevOps-Hub
-            -Dsonar.organization=saadrehman171000
-            -Dsonar.branch.name=features
-            -Dsonar.sources=src
-            -Dsonar.host.url=https://sonarcloud.io
-            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
 
   # Dependency Scanning
   dependency-check:
