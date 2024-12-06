@@ -30,19 +30,18 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Important for better SonarCloud analysis
+          fetch-depth: 0
       
       - name: SonarCloud Scan
-        uses: SonarSource/sonarqube-scan-action@v4.1.0  # Updated to the newer action
+        uses: SonarSource/sonarqube-scan-action@v4.1.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           args: >
-            -Dsonar.projectKey=devops-hub
-            -Dsonar.organization=devops-hub
-            -Dsonar.sources=.
-            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
+            -Dsonar.projectKey=saadrehman171000_devops-hub
+            -Dsonar.organization=saadrehman171000
+            -Dsonar.host.url=https://sonarcloud.io
 
   # Dependency Scanning
   dependency-check:
