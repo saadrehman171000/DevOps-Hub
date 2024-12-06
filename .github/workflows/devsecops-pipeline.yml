@@ -39,13 +39,12 @@ jobs:
       - name: SonarCloud Scan
         run: |
           sonar-scanner \
+            -X \
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.projectKey=saadrehman171000_DevOps-Hub \
             -Dsonar.organization=saadrehman171000 \
             -Dsonar.sources=. \
-            -Dsonar.branch.name=features \
-            -Dsonar.branch.target=main \
-            -Dsonar.qualitygate.wait=true \
+            -Dsonar.verbose=true \
             -Dsonar.login=${{ secrets.SONAR_TOKEN }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
