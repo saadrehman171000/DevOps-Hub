@@ -95,16 +95,41 @@ jobs:
       DIRECT_URL: ${{ secrets.DIRECT_URL }}
     steps:
       - uses: actions/checkout@v3
+      
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
-      - run: npm install
-      - run: npm test
-      # Add security testing
+          
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Run Tests
+        run: npm test
+        
+      # Replace jest-security-scanner with more reliable security testing tools
+      - name: Install Security Testing Tools
+        run: |
+          npm install -g jest
+          npm install --save-dev jest-security
+          npm install --save-dev jest-html-reporter
+          
       - name: Run Security Tests
         run: |
-          npm install jest-security-scanner
-          npm run security-test
+          # Add basic security checks
+          jest --testPathPattern=__tests__/security
+          
+      - name: Generate Test Report
+        run: |
+          jest --json --outputFile=jest-results.json
+          
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: test-results
+          path: |
+            jest-results.json
+            coverage/
 
   # Enhanced security audit
   security-audit:
