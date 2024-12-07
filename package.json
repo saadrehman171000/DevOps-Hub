@@ -57,10 +57,10 @@
     "typescript": "^5.0.0"
   },
   "resolutions": {
-    "lodash.template": "^4.5.0",
-    "**/lodash.template": "^4.5.0"
+    "lodash.template": "^5.0.0",
+    "**/lodash.template": "^5.0.0"
   },
   "overrides": {
-    "lodash.template": "^4.5.0"
+    "lodash.template": "^5.0.0"
   }
 }
