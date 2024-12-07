@@ -6,26 +6,26 @@ resource "kubernetes_namespace" "devopshub" {
 
 resource "kubernetes_deployment" "nextjs" {
   metadata {
-    name      = var.app_name
-    namespace = var.namespace
+    name      = "nextjs-app"
+    namespace = "production"
     labels = {
-      app = var.app_name
+      app = "nextjs-app"
     }
   }
 
   spec {
-    replicas = var.replicas
+    replicas = 2
 
     selector {
       match_labels = {
-        app = var.app_name
+        app = "nextjs-app"
       }
     }
 
     template {
       metadata {
         labels = {
-          app = var.app_name
+          app = "nextjs-app"
         }
       }
 
@@ -38,8 +38,8 @@ resource "kubernetes_deployment" "nextjs" {
         }
 
         container {
-          name  = var.app_name
-          image = "${var.image_name}@${var.image_digest}"  # Use digest instead of tag
+          name  = "nextjs-app"
+          image = "your-dockerhub-username/devopshub-web:latest"
 
           # Add resource limits and requests
           resources {
