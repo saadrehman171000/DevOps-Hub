@@ -93,6 +93,7 @@ jobs:
     env:
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
       DIRECT_URL: ${{ secrets.DIRECT_URL }}
+      NODE_OPTIONS: "--no-deprecation" # Suppress deprecation warnings
     steps:
       - uses: actions/checkout@v3
       
@@ -101,26 +102,22 @@ jobs:
           node-version: '18'
           
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm install
+          npm install --save-dev @testing-library/react@latest
+          npm install --save-dev @testing-library/jest-dom@latest
         
       - name: Run Tests
         run: npm test
         
-      # Replace jest-security-scanner with more reliable security testing tools
-      - name: Install Security Testing Tools
-        run: |
-          npm install -g jest
-          npm install --save-dev jest-security
-          npm install --save-dev jest-html-reporter
-          
       - name: Run Security Tests
         run: |
-          # Add basic security checks
-          jest --testPathPattern=__tests__/security
+          # Run security tests without global installation
+          npx jest --testPathPattern=__tests__/security --silent
           
       - name: Generate Test Report
         run: |
-          jest --json --outputFile=jest-results.json
+          npx jest --json --outputFile=jest-results.json
           
       - name: Upload Test Results
         uses: actions/upload-artifact@v3
