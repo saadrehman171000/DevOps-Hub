@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
     <suppress>
-        <notes>Suppressing lodash.template vulnerability as it's a transitive dependency</notes>
+        <notes>Suppressing lodash.template vulnerability</notes>
         <packageUrl regex="true">^pkg:npm/lodash\.template@.*$</packageUrl>
         <cve>CVE-2021-23337</cve>
     </suppress>
