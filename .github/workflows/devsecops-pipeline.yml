@@ -277,16 +277,15 @@ jobs:
       - name: Notify Slack with Security Status
         uses: slackapi/slack-github-action@v1.23.0
         with:
-        
           payload: |
             {
-              "text": "DevSecOps Pipeline Complete for ${{ github.repository }}",
               "blocks": [
                 {
                   "type": "header",
                   "text": {
                     "type": "plain_text",
-                    "text": "🛡️ DevSecOps Pipeline Complete"
+                    "text": "🛡️ DevSecOps Pipeline Complete",
+                    "emoji": true
                   }
                 },
                 {
@@ -294,15 +293,27 @@ jobs:
                   "fields": [
                     {
                       "type": "mrkdwn",
-                      "text": "*Security Scan Status:*\n✅ Complete"
+                      "text": "*Repository:*\n${{ github.repository }}"
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "*Vulnerability Status:*\n${{ job.status == 'success' && '✅ No Critical Issues' || '❌ Issues Found' }}"
+                      "text": "*Status:*\n${{ job.status }}"
+                    }
+                  ]
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Security Scan:*\n✅ Complete"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Branch:*\n${{ github.ref_name }}"
                     }
                   ]
                 }
-                # [Previous notification configuration remains the same]
               ]
             }
         env:
