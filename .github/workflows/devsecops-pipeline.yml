@@ -1,5 +1,12 @@
 name: DevSecOps Pipeline
 
+# Add permissions at the toplevel
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+  packages: write
+
 on:
   push:
     branches: [ features ]
@@ -253,13 +260,14 @@ jobs:
           image-ref: '${{ secrets.DOCKERHUB_USERNAME }}/devopshub-web:latest'
           format: 'sarif'
           output: 'trivy-results.sarif'
-          severity: 'CRITICAL'
-      
+          severity: 'CRITICAL,HIGH'
+          
       - name: Upload Trivy scan results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v3
         if: always()
         with:
           sarif_file: 'trivy-results.sarif'
+          category: 'trivy-results'
 
   # Enhanced notification with security status
   notify:
