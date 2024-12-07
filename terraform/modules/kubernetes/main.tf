@@ -38,8 +38,8 @@ resource "kubernetes_deployment" "nextjs" {
         }
 
         container {
-          name  = "nextjs-app"
-          image = "your-dockerhub-username/devopshub-web:latest"
+          name  = var.app_name
+          image = "${var.image_name}@${var.image_digest}"
 
           # Add resource limits and requests
           resources {
