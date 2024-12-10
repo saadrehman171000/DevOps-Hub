@@ -1,0 +1,44 @@
+version: '3.8'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        KINDE_CLIENT_ID: ${KINDE_CLIENT_ID}
+        KINDE_CLIENT_SECRET: ${KINDE_CLIENT_SECRET}
+        KINDE_ISSUER_URL: ${KINDE_ISSUER_URL}
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - KINDE_CLIENT_ID=${KINDE_CLIENT_ID}
+      - KINDE_CLIENT_SECRET=${KINDE_CLIENT_SECRET}
+      - KINDE_ISSUER_URL=${KINDE_ISSUER_URL}
+      - KINDE_SITE_URL=http://localhost:3000
+      - KINDE_POST_LOGOUT_REDIRECT_URL=http://localhost:3000
+      - KINDE_POST_LOGIN_REDIRECT_URL=http://localhost:3000
+      - NEXT_PUBLIC_API_URL=http://localhost:3000
+      - KINDE_REDIRECT_URL=http://localhost:3000/api/auth/kinde_callback
+      - NEXT_PUBLIC_URL=http://localhost:3000
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/devopshub
+      - DIRECT_URL=postgresql://postgres:postgres@db:5432/devopshub
+    env_file:
+      - .env
+    restart: unless-stopped
+    depends_on:
+      - db
+    
+  db:
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=devopshub
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data: 
