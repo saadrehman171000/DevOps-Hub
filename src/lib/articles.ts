@@ -329,7 +329,7 @@ pipeline {
     title: "Docker Containerization Best Practices",
     excerpt: "Learn how to effectively containerize your applications with Docker.",
     content: `
-# Docker Containerization Best Practices
+      # Docker Containerization Best Practices
 
 Docker has revolutionized how we deploy and manage applications. This guide covers essential practices for containerizing your applications effectively.
 
@@ -360,14 +360,14 @@ docker-compose --version
 # Pull an image
 docker pull nginx
 
-# Run a container
-docker run -d -p 8080:80 nginx
+      # Run a container
+      docker run -d -p 8080:80 nginx
 
-# List running containers
-docker ps
+      # List running containers
+      docker ps
 
-# Stop a container
-docker stop container_id
+      # Stop a container
+      docker stop container_id
 
 # Remove a container
 docker rm container_id
@@ -394,24 +394,24 @@ docker build -t myapp:latest .
 # Use an official Node runtime as base
 FROM node:18-alpine
 
-# Set working directory
-WORKDIR /app
+      # Set working directory
+      WORKDIR /app
 
-# Copy package files
-COPY package*.json ./
+      # Copy package files
+      COPY package*.json ./
 
-# Install dependencies
-RUN npm install
+      # Install dependencies
+      RUN npm install
 
-# Copy application code
-COPY . .
+      # Copy application code
+      COPY . .
 
-# Expose port
-EXPOSE 3000
+      # Expose port
+      EXPOSE 3000
 
-# Start application
-CMD ["npm", "start"]
-\`\`\`
+      # Start application
+      CMD ["npm", "start"]
+      \`\`\`
 
 ## Docker Compose Example
 
@@ -432,17 +432,17 @@ services:
     volumes:
       - db_data:/data/db
 
-volumes:
-  db_data:
-\`\`\`
+      volumes:
+        db_data:
+      \`\`\`
 
-## Best Practices
+      ## Best Practices
 
-### 1. Image Building
-- Use official base images
-- Minimize layer count
-- Implement multi-stage builds
-- Use .dockerignore file
+      ### 1. Image Building
+      - Use official base images
+      - Minimize layer count
+      - Implement multi-stage builds
+      - Use .dockerignore file
 
 ### 2. Security
 \`\`\`dockerfile
@@ -461,13 +461,13 @@ USER appuser
 # Rest of your Dockerfile...
 \`\`\`
 
-### 3. Performance
-- Optimize image size
-- Use appropriate base images
-- Implement layer caching
-- Clean up unused objects
+      ### 3. Performance
+      - Optimize image size
+      - Use appropriate base images
+      - Implement layer caching
+      - Clean up unused objects
 
-## Common Issues and Solutions
+      ## Common Issues and Solutions
 
 ### 1. Container Access
 \`\`\`bash
@@ -539,23 +539,540 @@ docker network connect myapp-network container2
     id: '4',
     title: 'Kubernetes Deployment Tutorial',
     excerpt: 'Step-by-step guide to deploying applications on Kubernetes.',
-    content: 'Full article content goes here...',
+    content: `
+# Kubernetes Deployment Tutorial
+
+Learn how to effectively deploy and manage applications on Kubernetes, the leading container orchestration platform.
+
+## Prerequisites
+- Docker installed and configured
+- kubectl CLI tool installed
+- Access to a Kubernetes cluster
+- Basic understanding of containers
+- Familiarity with YAML
+
+## Core Concepts
+
+### 1. Pods
+\`\`\`yaml
+# Basic Pod configuration
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-pod
+  labels:
+    app: myapp
+spec:
+  containers:
+  - name: myapp-container
+    image: nginx:latest
+    ports:
+    - containerPort: 80
+\`\`\`
+
+### 2. Deployments
+\`\`\`yaml
+# Deployment configuration
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: myapp-container
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+\`\`\`
+
+### 3. Services
+\`\`\`yaml
+# Service configuration
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: myapp
+  ports:
+  - port: 80
+    targetPort: 80
+\`\`\`
+
+## Basic Commands
+
+### Cluster Management
+\`\`\`bash
+# Check cluster status
+kubectl cluster-info
+
+# Get nodes information
+kubectl get nodes
+
+# View cluster events
+kubectl get events
+\`\`\`
+
+### Application Deployment
+\`\`\`bash
+# Create resources
+kubectl apply -f deployment.yaml
+
+# Check deployment status
+kubectl get deployments
+
+# Scale deployment
+kubectl scale deployment myapp-deployment --replicas=5
+
+# Rolling update
+kubectl set image deployment/myapp-deployment myapp-container=nginx:1.19
+\`\`\`
+
+## Advanced Configurations
+
+### 1. ConfigMaps
+\`\`\`yaml
+# ConfigMap example
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  DATABASE_URL: "mongodb://db:27017"
+  API_KEY: "your-api-key"
+\`\`\`
+
+### 2. Secrets
+\`\`\`yaml
+# Secret configuration
+apiVersion: v1
+kind: Secret
+metadata:
+  name: app-secrets
+type: Opaque
+data:
+  username: dXNlcm5hbWU=  # base64 encoded
+  password: cGFzc3dvcmQ=  # base64 encoded
+\`\`\`
+
+## Health Checks
+
+### 1. Liveness Probe
+\`\`\`yaml
+# Liveness probe configuration
+livenessProbe:
+  httpGet:
+    path: /health
+    port: 8080
+  initialDelaySeconds: 15
+  periodSeconds: 10
+\`\`\`
+
+### 2. Readiness Probe
+\`\`\`yaml
+# Readiness probe configuration
+readinessProbe:
+  httpGet:
+    path: /ready
+    port: 8080
+  initialDelaySeconds: 5
+  periodSeconds: 5
+\`\`\`
+
+## Resource Management
+
+### 1. Resource Limits
+\`\`\`yaml
+# Resource limits and requests
+resources:
+  limits:
+    cpu: "1"
+    memory: "512Mi"
+  requests:
+    cpu: "0.5"
+    memory: "256Mi"
+\`\`\`
+
+### 2. Horizontal Pod Autoscaling
+\`\`\`yaml
+# HPA configuration
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: myapp-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: myapp-deployment
+  minReplicas: 2
+  maxReplicas: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 80
+\`\`\`
+
+## Monitoring and Debugging
+
+### 1. Logs and Events
+\`\`\`bash
+# View pod logs
+kubectl logs pod-name
+
+# Stream logs
+kubectl logs -f pod-name
+
+# View pod events
+kubectl describe pod pod-name
+\`\`\`
+
+### 2. Debugging
+\`\`\`bash
+# Execute command in pod
+kubectl exec -it pod-name -- /bin/bash
+
+# Port forwarding
+kubectl port-forward pod-name 8080:80
+
+# View pod details
+kubectl get pod pod-name -o yaml
+\`\`\`
+
+## Best Practices
+
+### 1. Security
+- Use RBAC for access control
+- Implement network policies
+- Regular security updates
+- Use private container registry
+
+### 2. High Availability
+- Use multiple replicas
+- Implement pod disruption budgets
+- Configure proper resource requests/limits
+- Use pod anti-affinity rules
+
+### 3. Maintenance
+- Regular monitoring and logging
+- Implement proper backup strategies
+- Use rolling updates
+- Monitor cluster health
+
+## Next Steps
+1. Learn Helm package manager
+2. Explore service mesh (Istio)
+3. Implement CI/CD pipelines
+4. Study advanced networking
+5. Master monitoring solutions
+    `,
     author: 'Bob Wilson',
     date: '2023-07-01',
     category: 'Orchestration',
     tags: ['Kubernetes', 'Containers', 'DevOps'],
-    thumbnail: 'https://kubernetes.io/images/kubernetes-horizontal-color.png',
+    thumbnail: 'https://kubernetes.io/images/kubernetes-horizontal-color.png'
   },
   {
     id: '5',
     title: 'Infrastructure as Code with Terraform',
     excerpt: 'Learn how to manage your cloud infrastructure using Terraform.',
-    content: 'Full article content goes here...',
+    content: `
+# Infrastructure as Code with Terraform
+
+Learn how to automate your infrastructure deployment and management using HashiCorp Terraform.
+
+## Prerequisites
+- Basic understanding of cloud concepts
+- AWS/Azure/GCP account
+- Command line familiarity
+- Git basics
+
+## Installation and Setup
+
+### 1. Install Terraform
+\`\`\`bash
+# macOS (using Homebrew)
+brew install terraform
+
+# Windows (using Chocolatey)
+choco install terraform
+
+# Verify installation
+terraform version
+\`\`\`
+
+### 2. Configure Cloud Provider
+\`\`\`bash
+# AWS credentials setup
+export AWS_ACCESS_KEY_ID="your-access-key"
+export AWS_SECRET_ACCESS_KEY="your-secret-key"
+export AWS_REGION="us-west-2"
+\`\`\`
+
+## Basic Concepts
+
+### 1. Provider Configuration
+\`\`\`hcl
+# AWS provider configuration
+provider "aws" {
+  region = "us-west-2"
+}
+
+# Azure provider configuration
+provider "azurerm" {
+  features {}
+}
+
+# GCP provider configuration
+provider "google" {
+  project = "your-project-id"
+  region  = "us-central1"
+}
+\`\`\`
+
+### 2. Resource Creation
+\`\`\`hcl
+# Create AWS EC2 instance
+resource "aws_instance" "web_server" {
+  ami           = "ami-0c55b159cbfafe1f0"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "WebServer"
+    Environment = "Production"
+  }
+}
+
+# Create VPC
+resource "aws_vpc" "main" {
+  cidr_block = "10.0.0.0/16"
+  
+  tags = {
+    Name = "MainVPC"
+  }
+}
+\`\`\`
+
+## Variables and Outputs
+
+### 1. Variable Definitions
+\`\`\`hcl
+# variables.tf
+variable "environment" {
+  type        = string
+  description = "Deployment environment"
+  default     = "development"
+}
+
+variable "instance_type" {
+  type        = string
+  description = "EC2 instance type"
+  default     = "t2.micro"
+}
+
+variable "vpc_cidr" {
+  type        = string
+  description = "VPC CIDR block"
+  default     = "10.0.0.0/16"
+}
+\`\`\`
+
+### 2. Output Definitions
+\`\`\`hcl
+# outputs.tf
+output "instance_ip" {
+  value       = aws_instance.web_server.public_ip
+  description = "Public IP of the web server"
+}
+
+output "vpc_id" {
+  value       = aws_vpc.main.id
+  description = "ID of the VPC"
+}
+\`\`\`
+
+## Terraform Commands
+
+### 1. Basic Workflow
+\`\`\`bash
+# Initialize Terraform
+terraform init
+
+# Plan changes
+terraform plan
+
+# Apply changes
+terraform apply
+
+# Destroy infrastructure
+terraform destroy
+\`\`\`
+
+### 2. State Management
+\`\`\`bash
+# Show current state
+terraform show
+
+# List resources
+terraform state list
+
+# Remove resource from state
+terraform state rm aws_instance.web_server
+\`\`\`
+
+## Advanced Concepts
+
+### 1. Modules
+\`\`\`hcl
+# modules/vpc/main.tf
+module "vpc" {
+  source = "./modules/vpc"
+  
+  vpc_cidr     = var.vpc_cidr
+  environment  = var.environment
+  
+  tags = {
+    Environment = var.environment
+    Terraform   = "true"
+  }
+}
+\`\`\`
+
+### 2. Data Sources
+\`\`\`hcl
+# Find latest Amazon Linux 2 AMI
+data "aws_ami" "amazon_linux_2" {
+  most_recent = true
+  owners      = ["amazon"]
+  
+  filter {
+    name   = "name"
+    values = ["amzn2-ami-hvm-*-x86_64-gp2"]
+  }
+}
+\`\`\`
+
+## Best Practices
+
+### 1. State Management
+- Use remote state storage
+- Enable state locking
+- Implement state backup
+\`\`\`hcl
+# backend configuration
+terraform {
+  backend "s3" {
+    bucket = "terraform-state-bucket"
+    key    = "prod/terraform.tfstate"
+    region = "us-west-2"
+    dynamodb_table = "terraform-locks"
+    encrypt = true
+  }
+}
+\`\`\`
+
+### 2. Code Organization
+- Use modules for reusability
+- Implement consistent naming
+- Separate environments
+- Version control
+
+### 3. Security
+- Encrypt sensitive data
+- Use IAM roles
+- Implement least privilege
+- Regular security audits
+
+## Common Patterns
+
+### 1. Multi-Environment Setup
+\`\`\`hcl
+# environments/prod/main.tf
+module "prod_infrastructure" {
+  source = "../../modules/infrastructure"
+  
+  environment = "production"
+  vpc_cidr    = "10.0.0.0/16"
+  
+  tags = {
+    Environment = "production"
+    Managed_by  = "terraform"
+  }
+}
+\`\`\`
+
+### 2. Resource Tagging
+\`\`\`hcl
+# Define common tags
+locals {
+  common_tags = {
+    Environment = var.environment
+    Project     = var.project_name
+    Terraform   = "true"
+    Owner       = "DevOps"
+  }
+}
+
+# Apply tags to resources
+resource "aws_instance" "example" {
+  # ... other configuration ...
+  
+  tags = merge(
+    local.common_tags,
+    {
+      Name = "ExampleInstance"
+    }
+  )
+}
+\`\`\`
+
+## Troubleshooting
+
+### 1. Common Issues
+\`\`\`bash
+# Debug logging
+export TF_LOG=DEBUG
+terraform plan
+
+# Clear cache
+rm -rf .terraform
+
+# Refresh state
+terraform refresh
+\`\`\`
+
+### 2. Best Practices
+- Use detailed error messages
+- Implement proper logging
+- Version control state files
+- Regular testing
+
+## Next Steps
+1. Learn about Terraform Cloud
+2. Explore advanced modules
+3. Implement CI/CD pipelines
+4. Study compliance and security
+5. Master state management
+    `,
     author: 'Eve Anderson',
     date: '2023-07-15',
     category: 'Infrastructure',
     tags: ['Terraform', 'IaC', 'Cloud'],
-    thumbnail: 'https://www.datocms-assets.com/2885/1620155116-brandhcterraformverticalcolor.svg',
+    thumbnail: 'https://www.datocms-assets.com/2885/1620155116-brandhcterraformverticalcolor.svg'
   },
   {
     id: "getting-started-with-devops",
