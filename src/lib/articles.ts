@@ -12,15 +12,171 @@ export interface Article {
 
 export const articles: Article[] = [
   {
-    id: '1',
-    title: 'Introduction to CI/CD',
-    excerpt: 'Learn the basics of Continuous Integration and Continuous Deployment.',
-    content: 'Full article content goes here...',
-    author: 'Jane Doe',
-    date: '2023-05-15',
-    category: 'CI/CD',
-    tags: ['DevOps', 'Automation', 'CI/CD'],
-    thumbnail: 'https://www.parasoft.com/wp-content/uploads/2021/04/CICD_CICD.png',
+    id: "1",
+    title: "Introduction to CI/CD",
+    excerpt: "Learn the basics of Continuous Integration and Continuous Deployment.",
+    content: `
+      # Introduction to CI/CD
+
+      ## What is CI/CD?
+
+      Continuous Integration and Continuous Delivery/Deployment (CI/CD) are modern software development practices that enable teams to deliver code changes more frequently and reliably.
+
+      ## Core Components
+
+      ### 1. Continuous Integration (CI)
+      - Automated code integration
+      - Regular code commits
+      - Automated testing
+      - Code quality checks
+
+      ### 2. Continuous Delivery (CD)
+      - Automated build processes
+      - Deployment automation
+      - Environment management
+      - Release coordination
+
+      ## CI/CD Pipeline Stages
+
+      ### 1. Source Control
+      - Code commits
+      - Branch management
+      - Code review process
+      - Version control
+
+      ### 2. Build
+      \`\`\`yaml
+      # Example GitHub Actions workflow
+      name: Build
+      on: [push]
+      jobs:
+        build:
+          runs-on: ubuntu-latest
+          steps:
+            - uses: actions/checkout@v2
+            - name: Build
+              run: |
+                npm install
+                npm run build
+      \`\`\`
+
+      ### 3. Test
+      - Unit testing
+      - Integration testing
+      - Security scanning
+      - Performance testing
+
+      ### 4. Deploy
+      - Staging deployment
+      - Production deployment
+      - Rollback procedures
+      - Health checks
+
+      ## Best Practices
+
+      1. **Automate Everything**
+         - Build process
+         - Testing
+         - Deployment
+         - Monitoring
+
+      2. **Version Control**
+         - Use meaningful commit messages
+         - Branch naming conventions
+         - Pull request reviews
+         - Clean git history
+
+      3. **Testing Strategy**
+         - Test early and often
+         - Automated test suites
+         - Test coverage metrics
+         - Performance testing
+
+      ## Popular CI/CD Tools
+
+      1. **GitHub Actions**
+         - Cloud-hosted
+         - Easy GitHub integration
+         - YAML configuration
+         - Free for public repos
+
+      2. **GitLab CI**
+         - Built into GitLab
+         - Container-native
+         - Auto DevOps
+         - Integrated registry
+
+      3. **Jenkins**
+         - Self-hosted
+         - Highly customizable
+         - Rich plugin ecosystem
+         - Community support
+
+      ## Implementation Steps
+
+      1. **Set Up Version Control**
+         - Choose a git platform
+         - Define branching strategy
+         - Configure access controls
+
+      2. **Configure Build Process**
+         - Define build steps
+         - Set up dependencies
+         - Configure artifacts
+
+      3. **Implement Testing**
+         - Write automated tests
+         - Set up test environments
+         - Configure test runners
+
+      4. **Automate Deployment**
+         - Define deployment stages
+         - Configure environments
+         - Set up monitoring
+
+      ## Common Workflows
+
+      ### Feature Development
+      \`\`\`bash
+      # Feature branch workflow
+      git checkout -b feature/new-feature
+      # Make changes
+      git commit -m "Add new feature"
+      git push origin feature/new-feature
+      # Create pull request
+      # Automated tests run
+      # Code review
+      # Merge to main branch
+      # Automated deployment
+      \`\`\`
+
+      ## Monitoring and Metrics
+
+      1. **Key Metrics**
+         - Deployment frequency
+         - Lead time for changes
+         - Change failure rate
+         - Mean time to recovery
+
+      2. **Monitoring Tools**
+         - Prometheus
+         - Grafana
+         - ELK Stack
+         - New Relic
+
+      ## Next Steps
+
+      1. Choose your CI/CD tools
+      2. Set up your first pipeline
+      3. Implement automated testing
+      4. Configure deployment strategies
+      5. Establish monitoring
+    `,
+    author: "Jane Doe",
+    date: "2023-05-15",
+    category: "CI/CD",
+    tags: ["DevOps", "Automation", "CI/CD"],
+    thumbnail: "https://www.parasoft.com/wp-content/uploads/2021/04/CICD_CICD.png"
   },
   {
     id: '2',
@@ -161,15 +317,137 @@ export const articles: Article[] = [
     thumbnail: 'https://www.jenkins.io/images/logos/jenkins/jenkins.png'
   },
   {
-    id: '3',
-    title: 'Docker Containerization Best Practices',
-    excerpt: 'Learn how to effectively containerize your applications with Docker.',
-    content: 'Full article content goes here...',
-    author: 'Alice Johnson',
-    date: '2023-06-15',
-    category: 'Containerization',
-    tags: ['Docker', 'Containers', 'DevOps'],
-    thumbnail: 'https://www.docker.com/wp-content/uploads/2022/03/vertical-logo-monochromatic.png',
+    id: "3",
+    title: "Docker Containerization Best Practices",
+    excerpt: "Learn how to effectively containerize your applications with Docker.",
+    content: `
+      # Docker Containerization Best Practices
+
+      ## Prerequisites
+      - A 64-bit processor
+      - At least 4GB of RAM
+      - Windows 10/11 Pro/Enterprise (for Windows users)
+      - macOS 10.15 or newer (for Mac users)
+      - Linux kernel 3.10 or higher (for Linux users)
+
+      ## Installation Steps
+      1. Download Docker Desktop from [docker.com](https://www.docker.com/products/docker-desktop)
+      2. Run the installer for your operating system
+      3. Verify installation by running:
+         \`\`\`bash
+         docker --version
+         docker-compose --version
+         \`\`\`
+
+      ## Basic Docker Commands
+      \`\`\`bash
+      # Pull an image
+      docker pull nginx
+
+      # Run a container
+      docker run -d -p 8080:80 nginx
+
+      # List running containers
+      docker ps
+
+      # Stop a container
+      docker stop container_id
+
+      # Remove a container
+      docker rm container_id
+      \`\`\`
+
+      ## Creating Your First Dockerfile
+      \`\`\`dockerfile
+      # Use an official Node runtime as base
+      FROM node:18-alpine
+
+      # Set working directory
+      WORKDIR /app
+
+      # Copy package files
+      COPY package*.json ./
+
+      # Install dependencies
+      RUN npm install
+
+      # Copy application code
+      COPY . .
+
+      # Expose port
+      EXPOSE 3000
+
+      # Start application
+      CMD ["npm", "start"]
+      \`\`\`
+
+      ## Docker Compose Example
+      \`\`\`yaml
+      version: '3.8'
+      services:
+        web:
+          build: .
+          ports:
+            - "3000:3000"
+          environment:
+            NODE_ENV: production
+          volumes:
+            - .:/app
+        
+        db:
+          image: mongodb:latest
+          volumes:
+            - db_data:/data/db
+
+      volumes:
+        db_data:
+      \`\`\`
+
+      ## Best Practices
+
+      ### 1. Image Building
+      - Use official base images
+      - Minimize layer count
+      - Implement multi-stage builds
+      - Use .dockerignore file
+
+      ### 2. Security
+      - Run containers as non-root
+      - Scan images for vulnerabilities
+      - Keep base images updated
+      - Use specific tags instead of 'latest'
+
+      ### 3. Performance
+      - Optimize image size
+      - Use appropriate base images
+      - Implement layer caching
+      - Clean up unused objects
+
+      ## Common Issues and Solutions
+
+      ### 1. Container Access
+      - Port mapping issues
+      - Volume permissions
+      - Network connectivity
+      - Resource constraints
+
+      ### 2. Build Problems
+      - Cache invalidation
+      - Dependencies issues
+      - Platform compatibility
+      - Resource limits
+
+      ## Next Steps
+      1. Learn Docker networking
+      2. Explore Docker volumes
+      3. Study container orchestration
+      4. Implement CI/CD with Docker
+    `,
+    author: "Alice Johnson",
+    date: "2023-06-15",
+    category: "Containerization",
+    tags: ["Docker", "Containers", "DevOps"],
+    thumbnail: "https://www.docker.com/wp-content/uploads/2022/03/vertical-logo-monochromatic.png"
   },
   {
     id: '4',
