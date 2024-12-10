@@ -43,14 +43,17 @@ COPY prisma ./prisma/
 RUN npx prisma generate
 
 # Copy source code
+# copy commands
 COPY src ./src
 COPY public ./public
 COPY next.config.js ./
 
 # Build the application
+# build command 
 RUN npm run build
 
 # Production stage
+# production stage commands added
 FROM node:18-alpine AS runner
 
 WORKDIR /app
@@ -63,11 +66,14 @@ COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/prisma ./prisma
 
+
 # Set environment variables for production
 ENV NODE_ENV=production
 ENV PORT=3000
 
+
 EXPOSE 3000
+
 
 # using these commands to run it
 CMD ["npm", "start"]
