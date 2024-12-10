@@ -67,4 +67,5 @@ ENV PORT=3000
 
 EXPOSE 3000
 
+# using these commands to run it
 CMD ["npm", "start"]
