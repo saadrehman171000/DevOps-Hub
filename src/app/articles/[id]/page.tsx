@@ -1,3 +1,4 @@
+import { MDXRemote } from 'next-mdx-remote/rsc'
 import { getArticleById } from '@/lib/articles'
 import { Badge } from '@/components/ui/badge'
 import { notFound } from 'next/navigation'
@@ -66,7 +67,7 @@ export default async function ArticlePage(
         />
       </div>
       <div className="prose dark:prose-invert max-w-none">
-        {article.content}
+        <MDXRemote source={article.content} />
       </div>
     </div>
   )
