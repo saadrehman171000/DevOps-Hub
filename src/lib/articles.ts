@@ -18,9 +18,7 @@ export const articles: Article[] = [
     content: `
       # Introduction to CI/CD
 
-      ## What is CI/CD?
-
-      Continuous Integration and Continuous Delivery/Deployment (CI/CD) are modern software development practices that enable teams to deliver code changes more frequently and reliably.
+Continuous Integration and Continuous Delivery/Deployment (CI/CD) are modern software development practices that enable teams to deliver code changes more frequently and reliably.
 
       ## Core Components
 
@@ -60,117 +58,153 @@ export const articles: Article[] = [
                 npm run build
       \`\`\`
 
-      ### 3. Test
-      - Unit testing
-      - Integration testing
-      - Security scanning
-      - Performance testing
+### 3. Test
+\`\`\`yaml
+# Example test workflow
+name: Test
+on: [pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run Tests
+        run: |
+          npm install
+          npm test
+\`\`\`
 
-      ### 4. Deploy
-      - Staging deployment
-      - Production deployment
-      - Rollback procedures
-      - Health checks
+### 4. Deploy
+\`\`\`yaml
+# Example deployment workflow
+name: Deploy
+on:
+  push:
+    branches: [main]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Deploy
+        run: |
+          echo "Deploying to production..."
+\`\`\`
 
       ## Best Practices
 
-      1. **Automate Everything**
-         - Build process
-         - Testing
-         - Deployment
-         - Monitoring
+### 1. Automate Everything
+- Build process
+- Testing
+- Deployment
+- Monitoring
 
-      2. **Version Control**
-         - Use meaningful commit messages
-         - Branch naming conventions
-         - Pull request reviews
-         - Clean git history
+### 2. Version Control
+- Use meaningful commit messages
+- Branch naming conventions
+- Pull request reviews
+- Clean git history
 
-      3. **Testing Strategy**
-         - Test early and often
-         - Automated test suites
-         - Test coverage metrics
-         - Performance testing
+### 3. Testing Strategy
+- Test early and often
+- Automated test suites
+- Test coverage metrics
+- Performance testing
 
       ## Popular CI/CD Tools
 
-      1. **GitHub Actions**
-         - Cloud-hosted
-         - Easy GitHub integration
-         - YAML configuration
-         - Free for public repos
+### 1. GitHub Actions
+- Cloud-hosted
+- Easy GitHub integration
+- YAML configuration
+- Free for public repos
 
-      2. **GitLab CI**
-         - Built into GitLab
-         - Container-native
-         - Auto DevOps
-         - Integrated registry
+### 2. GitLab CI
+- Built into GitLab
+- Container-native
+- Auto DevOps
+- Integrated registry
 
-      3. **Jenkins**
-         - Self-hosted
-         - Highly customizable
-         - Rich plugin ecosystem
-         - Community support
+### 3. Jenkins
+- Self-hosted
+- Highly customizable
+- Rich plugin ecosystem
+- Community support
 
       ## Implementation Steps
 
-      1. **Set Up Version Control**
-         - Choose a git platform
-         - Define branching strategy
-         - Configure access controls
+### 1. Set Up Version Control
+\`\`\`bash
+# Initialize git repository
+git init
 
-      2. **Configure Build Process**
-         - Define build steps
-         - Set up dependencies
-         - Configure artifacts
+# Add remote repository
+git remote add origin https://github.com/username/repo.git
 
-      3. **Implement Testing**
-         - Write automated tests
-         - Set up test environments
-         - Configure test runners
+# Create main branch
+git checkout -b main
+\`\`\`
 
-      4. **Automate Deployment**
-         - Define deployment stages
-         - Configure environments
-         - Set up monitoring
+### 2. Configure Build Process
+\`\`\`yaml
+# Example build configuration
+build:
+  steps:
+    - name: Install dependencies
+      run: npm install
+    - name: Build application
+      run: npm run build
+    - name: Run tests
+      run: npm test
+\`\`\`
 
-      ## Common Workflows
+### 3. Implement Testing
+\`\`\`javascript
+// Example test suite
+describe('Application Tests', () => {
+  test('should build successfully', () => {
+    expect(build()).toBeTruthy();
+  });
+  
+  test('should pass integration tests', () => {
+    expect(integrate()).toBeTruthy();
+  });
+});
+\`\`\`
 
-      ### Feature Development
-      \`\`\`bash
-      # Feature branch workflow
-      git checkout -b feature/new-feature
-      # Make changes
-      git commit -m "Add new feature"
-      git push origin feature/new-feature
-      # Create pull request
-      # Automated tests run
-      # Code review
-      # Merge to main branch
-      # Automated deployment
-      \`\`\`
+### 4. Automate Deployment
+\`\`\`yaml
+# Example deployment configuration
+deploy:
+  production:
+    steps:
+      - name: Deploy to production
+        run: |
+          docker build -t app .
+          docker push app
+          kubectl apply -f k8s/
+\`\`\`
 
       ## Monitoring and Metrics
 
-      1. **Key Metrics**
-         - Deployment frequency
-         - Lead time for changes
-         - Change failure rate
-         - Mean time to recovery
+### 1. Key Metrics
+- Deployment frequency
+- Lead time for changes
+- Change failure rate
+- Mean time to recovery
 
-      2. **Monitoring Tools**
-         - Prometheus
-         - Grafana
-         - ELK Stack
-         - New Relic
+### 2. Monitoring Tools
+- Prometheus
+- Grafana
+- ELK Stack
+- New Relic
 
-      ## Next Steps
-
-      1. Choose your CI/CD tools
-      2. Set up your first pipeline
-      3. Implement automated testing
-      4. Configure deployment strategies
-      5. Establish monitoring
+## Next Steps
+1. Choose your CI/CD tools
+2. Set up your first pipeline
+3. Implement automated testing
+4. Configure deployment strategies
+5. Establish monitoring
     `,
     author: "Jane Doe",
     date: "2023-05-15",
@@ -183,9 +217,9 @@ export const articles: Article[] = [
     title: 'Getting Started with Jenkins',
     excerpt: 'A comprehensive guide to setting up and using Jenkins for CI.',
     content: `
-      # Getting Started with Jenkins
+# Getting Started with Jenkins
 
-      Jenkins is one of the most popular open-source automation servers that helps automate the parts of software development related to building, testing, and deploying, facilitating continuous integration and continuous delivery (CI/CD).
+Jenkins is one of the most popular open-source automation servers that helps automate the parts of software development related to building, testing, and deploying.
 
       ## Installation and Setup
 
@@ -194,21 +228,36 @@ export const articles: Article[] = [
       - 256MB+ of RAM
       - 1GB+ of drive space
 
-      ### Installation Steps
-      1. Download Jenkins from [jenkins.io](https://jenkins.io)
-      2. Run the installer appropriate for your operating system
-      3. Access Jenkins through your web browser at \`http://localhost:8080\`
-      4. Follow the initial setup wizard to:
-         - Unlock Jenkins using the initial admin password
-         - Install suggested plugins
-         - Create your first admin user
+### Installation Steps
 
-      ## Basic Concepts
+1. Download Jenkins from [jenkins.io](https://jenkins.io)
+2. Run the installer appropriate for your operating system
+3. Access Jenkins through your web browser at \`http://localhost:8080\`
+4. Follow the initial setup wizard to:
+   - Unlock Jenkins using the initial admin password
+   - Install suggested plugins
+   - Create your first admin user
 
-      ### 1. Jobs/Projects
-      - The basic unit of work in Jenkins
-      - Can be freestyle projects, pipelines, or multi-branch pipelines
-      - Contains build steps and post-build actions
+## Basic Concepts
+
+### 1. Jobs/Projects
+\`\`\`groovy
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+    }
+}
+\`\`\`
 
       ### 2. Builds
       - Each execution of a job
@@ -251,64 +300,23 @@ export const articles: Article[] = [
 
       ## Best Practices
 
-      1. **Security**
-         - Use role-based access control
-         - Keep Jenkins behind a firewall
-         - Regular security updates
-         - Use credentials management
+### 1. Security
+- Use role-based access control
+- Keep Jenkins behind a firewall
+- Regular security updates
+- Use credentials management
 
-      2. **Performance**
-         - Regular cleanup of old builds
-         - Optimize workspace cleanup
-         - Configure proper build retention policies
-         - Monitor resource usage
+### 2. Performance
+- Regular cleanup of old builds
+- Optimize workspace cleanup
+- Configure proper build retention policies
+- Monitor resource usage
 
-      3. **Pipeline Management**
-         - Use Jenkinsfile in source control
-         - Implement proper error handling
-         - Use shared libraries for common functionality
-         - Keep pipelines modular
-
-      ## Common Plugins
-
-      1. **Git Plugin**
-         - Integrates Git version control
-         - Supports branches and tags
-         - Handles webhooks
-
-      2. **Pipeline Plugin**
-         - Implements Pipeline as Code
-         - Supports parallel execution
-         - Provides visualization
-
-      3. **Docker Plugin**
-         - Manages Docker containers
-         - Supports Docker agents
-         - Handles container lifecycle
-
-      ## Troubleshooting Tips
-
-      1. **Build Failures**
-         - Check console output
-         - Verify environment variables
-         - Validate source code access
-         - Check resource constraints
-
-      2. **Performance Issues**
-         - Monitor memory usage
-         - Check disk space
-         - Review concurrent builds
-         - Analyze plugin impact
-
-      ## Next Steps
-
-      1. Learn Pipeline as Code
-      2. Implement automated testing
-      3. Set up deployment pipelines
-      4. Configure notifications
-      5. Integrate with other tools
-
-      Remember to regularly backup your Jenkins configuration and keep the system updated with the latest security patches.
+### 3. Pipeline Management
+- Use Jenkinsfile in source control
+- Implement proper error handling
+- Use shared libraries for common functionality
+- Keep pipelines modular
     `,
     author: 'John Smith',
     date: '2023-06-01',
@@ -321,127 +329,205 @@ export const articles: Article[] = [
     title: "Docker Containerization Best Practices",
     excerpt: "Learn how to effectively containerize your applications with Docker.",
     content: `
-      # Docker Containerization Best Practices
+# Docker Containerization Best Practices
 
-      ## Prerequisites
-      - A 64-bit processor
-      - At least 4GB of RAM
-      - Windows 10/11 Pro/Enterprise (for Windows users)
-      - macOS 10.15 or newer (for Mac users)
-      - Linux kernel 3.10 or higher (for Linux users)
+Docker has revolutionized how we deploy and manage applications. This guide covers essential practices for containerizing your applications effectively.
 
-      ## Installation Steps
-      1. Download Docker Desktop from [docker.com](https://www.docker.com/products/docker-desktop)
-      2. Run the installer for your operating system
-      3. Verify installation by running:
-         \`\`\`bash
-         docker --version
-         docker-compose --version
-         \`\`\`
+## Prerequisites
+- A 64-bit processor
+- At least 4GB of RAM
+- Windows 10/11 Pro/Enterprise (for Windows users)
+- macOS 10.15 or newer (for Mac users)
+- Linux kernel 3.10 or higher (for Linux users)
 
-      ## Basic Docker Commands
-      \`\`\`bash
-      # Pull an image
-      docker pull nginx
+## Installation Steps
 
-      # Run a container
-      docker run -d -p 8080:80 nginx
+1. Download Docker Desktop from [docker.com](https://www.docker.com/products/docker-desktop)
+2. Run the installer for your operating system
+3. Verify installation by running:
+\`\`\`bash
+# Check Docker version
+docker --version
 
-      # List running containers
-      docker ps
+# Check Docker Compose version
+docker-compose --version
+\`\`\`
 
-      # Stop a container
-      docker stop container_id
+## Basic Docker Commands
 
-      # Remove a container
-      docker rm container_id
-      \`\`\`
+### Container Management
+\`\`\`bash
+# Pull an image
+docker pull nginx
 
-      ## Creating Your First Dockerfile
-      \`\`\`dockerfile
-      # Use an official Node runtime as base
-      FROM node:18-alpine
+# Run a container
+docker run -d -p 8080:80 nginx
 
-      # Set working directory
-      WORKDIR /app
+# List running containers
+docker ps
 
-      # Copy package files
-      COPY package*.json ./
+# Stop a container
+docker stop container_id
 
-      # Install dependencies
-      RUN npm install
+# Remove a container
+docker rm container_id
 
-      # Copy application code
-      COPY . .
+# View container logs
+docker logs container_id
+\`\`\`
 
-      # Expose port
-      EXPOSE 3000
+### Image Management
+\`\`\`bash
+# List images
+docker images
 
-      # Start application
-      CMD ["npm", "start"]
-      \`\`\`
+# Remove image
+docker rmi image_name
 
-      ## Docker Compose Example
-      \`\`\`yaml
-      version: '3.8'
-      services:
-        web:
-          build: .
-          ports:
-            - "3000:3000"
-          environment:
-            NODE_ENV: production
-          volumes:
-            - .:/app
-        
-        db:
-          image: mongodb:latest
-          volumes:
-            - db_data:/data/db
+# Build image from Dockerfile
+docker build -t myapp:latest .
+\`\`\`
 
-      volumes:
-        db_data:
-      \`\`\`
+## Creating Your First Dockerfile
 
-      ## Best Practices
+\`\`\`dockerfile
+# Use an official Node runtime as base
+FROM node:18-alpine
 
-      ### 1. Image Building
-      - Use official base images
-      - Minimize layer count
-      - Implement multi-stage builds
-      - Use .dockerignore file
+# Set working directory
+WORKDIR /app
 
-      ### 2. Security
-      - Run containers as non-root
-      - Scan images for vulnerabilities
-      - Keep base images updated
-      - Use specific tags instead of 'latest'
+# Copy package files
+COPY package*.json ./
 
-      ### 3. Performance
-      - Optimize image size
-      - Use appropriate base images
-      - Implement layer caching
-      - Clean up unused objects
+# Install dependencies
+RUN npm install
 
-      ## Common Issues and Solutions
+# Copy application code
+COPY . .
 
-      ### 1. Container Access
-      - Port mapping issues
-      - Volume permissions
-      - Network connectivity
-      - Resource constraints
+# Expose port
+EXPOSE 3000
 
-      ### 2. Build Problems
-      - Cache invalidation
-      - Dependencies issues
-      - Platform compatibility
-      - Resource limits
+# Start application
+CMD ["npm", "start"]
+\`\`\`
 
-      ## Next Steps
-      1. Learn Docker networking
-      2. Explore Docker volumes
-      3. Study container orchestration
-      4. Implement CI/CD with Docker
+## Docker Compose Example
+
+\`\`\`yaml
+version: '3.8'
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+    volumes:
+      - .:/app
+  
+  db:
+    image: mongodb:latest
+    volumes:
+      - db_data:/data/db
+
+volumes:
+  db_data:
+\`\`\`
+
+## Best Practices
+
+### 1. Image Building
+- Use official base images
+- Minimize layer count
+- Implement multi-stage builds
+- Use .dockerignore file
+
+### 2. Security
+\`\`\`dockerfile
+# Example of security best practices
+FROM node:18-alpine
+
+# Create non-root user
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+
+# Set working directory
+WORKDIR /app
+
+# Switch to non-root user
+USER appuser
+
+# Rest of your Dockerfile...
+\`\`\`
+
+### 3. Performance
+- Optimize image size
+- Use appropriate base images
+- Implement layer caching
+- Clean up unused objects
+
+## Common Issues and Solutions
+
+### 1. Container Access
+\`\`\`bash
+# Fix permission issues
+chmod 755 /docker/volumes
+
+# Check container networking
+docker network ls
+docker network inspect bridge
+
+# View container resources
+docker stats container_id
+\`\`\`
+
+### 2. Build Problems
+\`\`\`bash
+# Clear build cache
+docker builder prune
+
+# Debug build process
+docker build --progress=plain .
+
+# Check resource limits
+docker info
+\`\`\`
+
+## Advanced Topics
+
+### 1. Multi-stage Builds
+\`\`\`dockerfile
+# Build stage
+FROM node:18-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+
+# Production stage
+FROM nginx:alpine
+COPY --from=builder /app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+\`\`\`
+
+### 2. Docker Networks
+\`\`\`bash
+# Create network
+docker network create myapp-network
+
+# Connect containers
+docker network connect myapp-network container1
+docker network connect myapp-network container2
+\`\`\`
+
+## Next Steps
+1. Learn Docker networking
+2. Explore Docker volumes
+3. Study container orchestration
+4. Implement CI/CD with Docker
     `,
     author: "Alice Johnson",
     date: "2023-06-15",
