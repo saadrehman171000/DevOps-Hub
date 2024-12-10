@@ -1,0 +1,10 @@
+namespace           = "devopshub-dev"
+replicas           = 2
+nextjs_image        = "saadrehman17100/devopshub-web:latest"
+postgres_password   = "skic61hufEHo"
+postgres_database   = "devopshub"
+kinde_client_id     = "ceb488e5b6a24fe297c7d71b1c3660d8"
+kinde_client_secret = "oRZd2AIKEhfOpBRMuIjpOoUfO0kep0udcVNhlWe1UJJ74dfLwe"
+kinde_issuer_url    = "https://devopshub.kinde.com"
+kinde_site_url      = "http://localhost:3000"
+kinde_redirect_url  = "http://localhost:3000/api/auth/kinde_callback"

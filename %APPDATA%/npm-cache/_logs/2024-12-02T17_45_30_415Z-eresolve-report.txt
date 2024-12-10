@@ -1,0 +1,596 @@
+'Log files:
+C:\Users\saadr\Desktop\DevOps-Hub\devopshub\%APPDATA%\npm-cache\_logs\2024-12-02T17_45_30_415Z-debug-0.log
+
+# npm resolution error report
+
+While resolving: @kinde-oss/kinde-auth-nextjs@2.4.6
+Found: react@19.0.0-rc-66855b96-20241106
+node_modules/react
+  peer react@"^18 || ^19.0.0-0" from @clerk/clerk-react@5.17.1
+  node_modules/@clerk/clerk-react
+    @clerk/clerk-react@"5.17.1" from @clerk/nextjs@6.5.1
+    node_modules/@clerk/nextjs
+      @clerk/nextjs@"^6.5.1" from the root project
+  peer react@"^18 || ^19.0.0-0" from @clerk/nextjs@6.5.1
+  node_modules/@clerk/nextjs
+    @clerk/nextjs@"^6.5.1" from the root project
+  peerOptional react@"^18 || ^19.0.0-0" from @clerk/shared@2.17.0
+  node_modules/@clerk/shared
+    @clerk/shared@"2.17.0" from @clerk/backend@1.18.0
+    node_modules/@clerk/backend
+      @clerk/backend@"1.18.0" from @clerk/nextjs@6.5.1
+      node_modules/@clerk/nextjs
+        @clerk/nextjs@"^6.5.1" from the root project
+    @clerk/shared@"2.17.0" from @clerk/clerk-react@5.17.1
+    node_modules/@clerk/clerk-react
+      @clerk/clerk-react@"5.17.1" from @clerk/nextjs@6.5.1
+      node_modules/@clerk/nextjs
+        @clerk/nextjs@"^6.5.1" from the root project
+    @clerk/shared@"2.17.0" from @clerk/nextjs@6.5.1
+    node_modules/@clerk/nextjs
+      @clerk/nextjs@"^6.5.1" from the root project
+  peer react@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-arrow@1.1.0
+  node_modules/@radix-ui/react-arrow
+    @radix-ui/react-arrow@"1.1.0" from @radix-ui/react-popper@1.2.0
+    node_modules/@radix-ui/react-popper
+      @radix-ui/react-popper@"1.2.0" from @radix-ui/react-select@2.1.2
+      node_modules/@radix-ui/react-select
+        @radix-ui/react-select@"^2.1.2" from the root project
+  peer react@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-avatar@1.1.1
+  node_modules/@radix-ui/react-avatar
+    @radix-ui/react-avatar@"^1.1.1" from the root project
+  peer react@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-collection@1.1.0
+  node_modules/@radix-ui/react-collection
+    @radix-ui/react-collection@"1.1.0" from @radix-ui/react-select@2.1.2
+    node_modules/@radix-ui/react-select
+      @radix-ui/react-select@"^2.1.2" from the root project
+  peer react@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-context@1.1.0
+  node_modules/@radix-ui/react-collection/node_modules/@radix-ui/react-context
+    @radix-ui/react-context@"1.1.0" from @radix-ui/react-collection@1.1.0
+    node_modules/@radix-ui/react-collection
+      @radix-ui/react-collection@"1.1.0" from @radix-ui/react-select@2.1.2
+      node_modules/@radix-ui/react-select
+        @radix-ui/react-select@"^2.1.2" from the root project
+  peer react@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-compose-refs@1.1.0
+  node_modules/@radix-ui/react-compose-refs
+    @radix-ui/react-compose-refs@"1.1.0" from @radix-ui/react-collection@1.1.0
+    node_modules/@radix-ui/react-collection
+      @radix-ui/react-collection@"1.1.0" from @radix-ui/react-select@2.1.2
+      node_modules/@radix-ui/react-select
+        @radix-ui/react-select@"^2.1.2" from the root project
+    @radix-ui/react-compose-refs@"1.1.0" from @radix-ui/react-dismissable-layer@1.1.1
+    node_modules/@radix-ui/react-dismissable-layer
+      @radix-ui/react-dismissable-layer@"1.1.1" from @radix-ui/react-select@2.1.2
+      node_modules/@radix-ui/react-select
+        @radix-ui/react-select@"^2.1.2" from the root project
+    @radix-ui/react-compose-refs@"1.1.0" from @radix-ui/react-focus-scope@1.1.0
+    node_modules/@radix-ui/react-focus-scope
+      @radix-ui/react-focus-scope@"1.1.0" from @radix-ui/react-select@2.1.2
+      node_modules/@radix-ui/react-select
+        @radix-ui/react-select@"^2.1.2" from the root project
+    @radix-ui/react-compose-refs@"1.1.0" from @radix-ui/react-popper@1.2.0
+    node_modules/@radix-ui/react-popper
+      @radix-ui/react-popper@"1.2.0" from @radix-ui/react-select@2.1.2
+      node_modules/@radix-ui/react-select
+        @radix-ui/react-select@"^2.1.2" from the root project
+    @radix-ui/react-compose-refs@"1.1.0" from @radix-ui/react-select@2.1.2
+    node_modules/@radix-ui/react-select
+      @radix-ui/react-select@"^2.1.2" from the root project
+    @radix-ui/react-compose-refs@"1.1.0" from @radix-ui/react-slot@1.1.0
+    node_modules/@radix-ui/react-slot
+      @radix-ui/react-slot@"1.1.0" from @radix-ui/react-collection@1.1.0
+      node_modules/@radix-ui/react-collection
+        @radix-ui/react-collection@"1.1.0" from @radix-ui/react-select@2.1.2
+        node_modules/@radix-ui/react-select
+          @radix-ui/react-select@"^2.1.2" from the root project
+      @radix-ui/react-slot@"1.1.0" from @radix-ui/react-primitive@2.0.0
+      node_modules/@radix-ui/react-primitive
+        @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-arrow@1.1.0
+        node_modules/@radix-ui/react-arrow
+          @radix-ui/react-arrow@"1.1.0" from @radix-ui/react-popper@1.2.0
+          node_modules/@radix-ui/react-popper
+            @radix-ui/react-popper@"1.2.0" from @radix-ui/react-select@2.1.2
+            node_modules/@radix-ui/react-select
+              @radix-ui/react-select@"^2.1.2" from the root project
+        @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-avatar@1.1.1
+        node_modules/@radix-ui/react-avatar
+          @radix-ui/react-avatar@"^1.1.1" from the root project
+        @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-collection@1.1.0
+        node_modules/@radix-ui/react-collection
+          @radix-ui/react-collection@"1.1.0" from @radix-ui/react-select@2.1.2
+          node_modules/@radix-ui/react-select
+            @radix-ui/react-select@"^2.1.2" from the root project
+        @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-dismissable-layer@1.1.1
+        node_modules/@radix-ui/react-dismissable-layer
+          @radix-ui/react-dismissable-layer@"1.1.1" from @radix-ui/react-select@2.1.2
+          node_modules/@radix-ui/react-select
+            @radix-ui/react-select@"^2.1.2" from the root project
+        @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-focus-scope@1.1.0
+        node_modules/@radix-ui/react-focus-scope
+          @radix-ui/react-focus-scope@"1.1.0" from @radix-ui/react-select@2.1.2
+          node_modules/@radix-ui/react-select
+            @radix-ui/react-select@"^2.1.2" from the root project
+        @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-label@2.1.0
+        node_modules/@radix-ui/react-label
+          @radix-ui/react-label@"^2.1.0" from the root project
+        @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-popper@1.2.0
+        node_modules/@radix-ui/react-popper
+          @radix-ui/react-popper@"1.2.0" from @radix-ui/react-select@2.1.2
+          node_modules/@radix-ui/react-select
+            @radix-ui/react-select@"^2.1.2" from the root project
+        @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-portal@1.1.2
+        node_modules/@radix-ui/react-portal
+          @radix-ui/react-portal@"1.1.2" from @radix-ui/react-select@2.1.2
+          node_modules/@radix-ui/react-select
+            @radix-ui/react-select@"^2.1.2" from the root project
+        @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-select@2.1.2
+        node_modules/@radix-ui/react-select
+          @radix-ui/react-select@"^2.1.2" from the root project
+        @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-visually-hidden@1.1.0
+        node_modules/@radix-ui/react-visually-hidden
+          @radix-ui/react-visually-hidden@"1.1.0" from @radix-ui/react-select@2.1.2
+          node_modules/@radix-ui/react-select
+            @radix-ui/react-select@"^2.1.2" from the root project
+      @radix-ui/react-slot@"1.1.0" from @radix-ui/react-select@2.1.2
+      node_modules/@radix-ui/react-select
+        @radix-ui/react-select@"^2.1.2" from the root project
+      @radix-ui/react-slot@"^1.1.0" from the root project
+  peer react@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-context@1.1.1
+  node_modules/@radix-ui/react-context
+    @radix-ui/react-context@"1.1.1" from @radix-ui/react-avatar@1.1.1
+    node_modules/@radix-ui/react-avatar
+      @radix-ui/react-avatar@"^1.1.1" from the root project
+    @radix-ui/react-context@"1.1.1" from @radix-ui/react-select@2.1.2
+    node_modules/@radix-ui/react-select
+      @radix-ui/react-select@"^2.1.2" from the root project
+  peer react@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-direction@1.1.0
+  node_modules/@radix-ui/react-direction
+    @radix-ui/react-direction@"1.1.0" from @radix-ui/react-select@2.1.2
+    node_modules/@radix-ui/react-select
+      @radix-ui/react-select@"^2.1.2" from the root project
+  peer react@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-dismissable-layer@1.1.1
+  node_modules/@radix-ui/react-dismissable-layer
+    @radix-ui/react-dismissable-layer@"1.1.1" from @radix-ui/react-select@2.1.2
+    node_modules/@radix-ui/react-select
+      @radix-ui/react-select@"^2.1.2" from the root project
+  peer react@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-focus-guards@1.1.1
+  node_modules/@radix-ui/react-focus-guards
+    @radix-ui/react-focus-guards@"1.1.1" from @radix-ui/react-select@2.1.2
+    node_modules/@radix-ui/react-select
+      @radix-ui/react-select@"^2.1.2" from the root project
+  peer react@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-focus-scope@1.1.0
+  node_modules/@radix-ui/react-focus-scope
+    @radix-ui/react-focus-scope@"1.1.0" from @radix-ui/react-select@2.1.2
+    node_modules/@radix-ui/react-select
+      @radix-ui/react-select@"^2.1.2" from the root project
+  peer react@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-id@1.1.0
+  node_modules/@radix-ui/react-id
+    @radix-ui/react-id@"1.1.0" from @radix-ui/react-select@2.1.2
+    node_modules/@radix-ui/react-select
+      @radix-ui/react-select@"^2.1.2" from the root project
+  peer react@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-label@2.1.0
+  node_modules/@radix-ui/react-label
+    @radix-ui/react-label@"^2.1.0" from the root project
+  peer react@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-popper@1.2.0
+  node_modules/@radix-ui/react-popper
+    @radix-ui/react-popper@"1.2.0" from @radix-ui/react-select@2.1.2
+    node_modules/@radix-ui/react-select
+      @radix-ui/react-select@"^2.1.2" from the root project
+  peer react@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-context@1.1.0
+  node_modules/@radix-ui/react-popper/node_modules/@radix-ui/react-context
+    @radix-ui/react-context@"1.1.0" from @radix-ui/react-popper@1.2.0
+    node_modules/@radix-ui/react-popper
+      @radix-ui/react-popper@"1.2.0" from @radix-ui/react-select@2.1.2
+      node_modules/@radix-ui/react-select
+        @radix-ui/react-select@"^2.1.2" from the root project
+  peer react@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-portal@1.1.2
+  node_modules/@radix-ui/react-portal
+    @radix-ui/react-portal@"1.1.2" from @radix-ui/react-select@2.1.2
+    node_modules/@radix-ui/react-select
+      @radix-ui/react-select@"^2.1.2" from the root project
+  peer react@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-primitive@2.0.0
+  node_modules/@radix-ui/react-primitive
+    @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-arrow@1.1.0
+    node_modules/@radix-ui/react-arrow
+      @radix-ui/react-arrow@"1.1.0" from @radix-ui/react-popper@1.2.0
+      node_modules/@radix-ui/react-popper
+        @radix-ui/react-popper@"1.2.0" from @radix-ui/react-select@2.1.2
+        node_modules/@radix-ui/react-select
+          @radix-ui/react-select@"^2.1.2" from the root project
+    @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-avatar@1.1.1
+    node_modules/@radix-ui/react-avatar
+      @radix-ui/react-avatar@"^1.1.1" from the root project
+    @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-collection@1.1.0
+    node_modules/@radix-ui/react-collection
+      @radix-ui/react-collection@"1.1.0" from @radix-ui/react-select@2.1.2
+      node_modules/@radix-ui/react-select
+        @radix-ui/react-select@"^2.1.2" from the root project
+    @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-dismissable-layer@1.1.1
+    node_modules/@radix-ui/react-dismissable-layer
+      @radix-ui/react-dismissable-layer@"1.1.1" from @radix-ui/react-select@2.1.2
+      node_modules/@radix-ui/react-select
+        @radix-ui/react-select@"^2.1.2" from the root project
+    @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-focus-scope@1.1.0
+    node_modules/@radix-ui/react-focus-scope
+      @radix-ui/react-focus-scope@"1.1.0" from @radix-ui/react-select@2.1.2
+      node_modules/@radix-ui/react-select
+        @radix-ui/react-select@"^2.1.2" from the root project
+    @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-label@2.1.0
+    node_modules/@radix-ui/react-label
+      @radix-ui/react-label@"^2.1.0" from the root project
+    @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-popper@1.2.0
+    node_modules/@radix-ui/react-popper
+      @radix-ui/react-popper@"1.2.0" from @radix-ui/react-select@2.1.2
+      node_modules/@radix-ui/react-select
+        @radix-ui/react-select@"^2.1.2" from the root project
+    @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-portal@1.1.2
+    node_modules/@radix-ui/react-portal
+      @radix-ui/react-portal@"1.1.2" from @radix-ui/react-select@2.1.2
+      node_modules/@radix-ui/react-select
+        @radix-ui/react-select@"^2.1.2" from the root project
+    @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-select@2.1.2
+    node_modules/@radix-ui/react-select
+      @radix-ui/react-select@"^2.1.2" from the root project
+    @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-visually-hidden@1.1.0
+    node_modules/@radix-ui/react-visually-hidden
+      @radix-ui/react-visually-hidden@"1.1.0" from @radix-ui/react-select@2.1.2
+      node_modules/@radix-ui/react-select
+        @radix-ui/react-select@"^2.1.2" from the root project
+  peer react@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-select@2.1.2
+  node_modules/@radix-ui/react-select
+    @radix-ui/react-select@"^2.1.2" from the root project
+  peer react@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-slot@1.1.0
+  node_modules/@radix-ui/react-slot
+    @radix-ui/react-slot@"1.1.0" from @radix-ui/react-collection@1.1.0
+    node_modules/@radix-ui/react-collection
+      @radix-ui/react-collection@"1.1.0" from @radix-ui/react-select@2.1.2
+      node_modules/@radix-ui/react-select
+        @radix-ui/react-select@"^2.1.2" from the root project
+    @radix-ui/react-slot@"1.1.0" from @radix-ui/react-primitive@2.0.0
+    node_modules/@radix-ui/react-primitive
+      @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-arrow@1.1.0
+      node_modules/@radix-ui/react-arrow
+        @radix-ui/react-arrow@"1.1.0" from @radix-ui/react-popper@1.2.0
+        node_modules/@radix-ui/react-popper
+          @radix-ui/react-popper@"1.2.0" from @radix-ui/react-select@2.1.2
+          node_modules/@radix-ui/react-select
+            @radix-ui/react-select@"^2.1.2" from the root project
+      @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-avatar@1.1.1
+      node_modules/@radix-ui/react-avatar
+        @radix-ui/react-avatar@"^1.1.1" from the root project
+      @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-collection@1.1.0
+      node_modules/@radix-ui/react-collection
+        @radix-ui/react-collection@"1.1.0" from @radix-ui/react-select@2.1.2
+        node_modules/@radix-ui/react-select
+          @radix-ui/react-select@"^2.1.2" from the root project
+      @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-dismissable-layer@1.1.1
+      node_modules/@radix-ui/react-dismissable-layer
+        @radix-ui/react-dismissable-layer@"1.1.1" from @radix-ui/react-select@2.1.2
+        node_modules/@radix-ui/react-select
+          @radix-ui/react-select@"^2.1.2" from the root project
+      @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-focus-scope@1.1.0
+      node_modules/@radix-ui/react-focus-scope
+        @radix-ui/react-focus-scope@"1.1.0" from @radix-ui/react-select@2.1.2
+        node_modules/@radix-ui/react-select
+          @radix-ui/react-select@"^2.1.2" from the root project
+      @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-label@2.1.0
+      node_modules/@radix-ui/react-label
+        @radix-ui/react-label@"^2.1.0" from the root project
+      @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-popper@1.2.0
+      node_modules/@radix-ui/react-popper
+        @radix-ui/react-popper@"1.2.0" from @radix-ui/react-select@2.1.2
+        node_modules/@radix-ui/react-select
+          @radix-ui/react-select@"^2.1.2" from the root project
+      @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-portal@1.1.2
+      node_modules/@radix-ui/react-portal
+        @radix-ui/react-portal@"1.1.2" from @radix-ui/react-select@2.1.2
+        node_modules/@radix-ui/react-select
+          @radix-ui/react-select@"^2.1.2" from the root project
+      @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-select@2.1.2
+      node_modules/@radix-ui/react-select
+        @radix-ui/react-select@"^2.1.2" from the root project
+      @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-visually-hidden@1.1.0
+      node_modules/@radix-ui/react-visually-hidden
+        @radix-ui/react-visually-hidden@"1.1.0" from @radix-ui/react-select@2.1.2
+        node_modules/@radix-ui/react-select
+          @radix-ui/react-select@"^2.1.2" from the root project
+    @radix-ui/react-slot@"1.1.0" from @radix-ui/react-select@2.1.2
+    node_modules/@radix-ui/react-select
+      @radix-ui/react-select@"^2.1.2" from the root project
+    @radix-ui/react-slot@"^1.1.0" from the root project
+  peer react@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-use-callback-ref@1.1.0
+  node_modules/@radix-ui/react-use-callback-ref
+    @radix-ui/react-use-callback-ref@"1.1.0" from @radix-ui/react-avatar@1.1.1
+    node_modules/@radix-ui/react-avatar
+      @radix-ui/react-avatar@"^1.1.1" from the root project
+    @radix-ui/react-use-callback-ref@"1.1.0" from @radix-ui/react-dismissable-layer@1.1.1
+    node_modules/@radix-ui/react-dismissable-layer
+      @radix-ui/react-dismissable-layer@"1.1.1" from @radix-ui/react-select@2.1.2
+      node_modules/@radix-ui/react-select
+        @radix-ui/react-select@"^2.1.2" from the root project
+    @radix-ui/react-use-callback-ref@"1.1.0" from @radix-ui/react-focus-scope@1.1.0
+    node_modules/@radix-ui/react-focus-scope
+      @radix-ui/react-focus-scope@"1.1.0" from @radix-ui/react-select@2.1.2
+      node_modules/@radix-ui/react-select
+        @radix-ui/react-select@"^2.1.2" from the root project
+    @radix-ui/react-use-callback-ref@"1.1.0" from @radix-ui/react-popper@1.2.0
+    node_modules/@radix-ui/react-popper
+      @radix-ui/react-popper@"1.2.0" from @radix-ui/react-select@2.1.2
+      node_modules/@radix-ui/react-select
+        @radix-ui/react-select@"^2.1.2" from the root project
+    @radix-ui/react-use-callback-ref@"1.1.0" from @radix-ui/react-select@2.1.2
+    node_modules/@radix-ui/react-select
+      @radix-ui/react-select@"^2.1.2" from the root project
+    @radix-ui/react-use-callback-ref@"1.1.0" from @radix-ui/react-use-controllable-state@1.1.0
+    node_modules/@radix-ui/react-use-controllable-state
+      @radix-ui/react-use-controllable-state@"1.1.0" from @radix-ui/react-select@2.1.2
+      node_modules/@radix-ui/react-select
+        @radix-ui/react-select@"^2.1.2" from the root project
+    @radix-ui/react-use-callback-ref@"1.1.0" from @radix-ui/react-use-escape-keydown@1.1.0
+    node_modules/@radix-ui/react-use-escape-keydown
+      @radix-ui/react-use-escape-keydown@"1.1.0" from @radix-ui/react-dismissable-layer@1.1.1
+      node_modules/@radix-ui/react-dismissable-layer
+        @radix-ui/react-dismissable-layer@"1.1.1" from @radix-ui/react-select@2.1.2
+        node_modules/@radix-ui/react-select
+          @radix-ui/react-select@"^2.1.2" from the root project
+  peer react@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-use-controllable-state@1.1.0
+  node_modules/@radix-ui/react-use-controllable-state
+    @radix-ui/react-use-controllable-state@"1.1.0" from @radix-ui/react-select@2.1.2
+    node_modules/@radix-ui/react-select
+      @radix-ui/react-select@"^2.1.2" from the root project
+  peer react@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-use-escape-keydown@1.1.0
+  node_modules/@radix-ui/react-use-escape-keydown
+    @radix-ui/react-use-escape-keydown@"1.1.0" from @radix-ui/react-dismissable-layer@1.1.1
+    node_modules/@radix-ui/react-dismissable-layer
+      @radix-ui/react-dismissable-layer@"1.1.1" from @radix-ui/react-select@2.1.2
+      node_modules/@radix-ui/react-select
+        @radix-ui/react-select@"^2.1.2" from the root project
+  peer react@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-use-layout-effect@1.1.0
+  node_modules/@radix-ui/react-use-layout-effect
+    @radix-ui/react-use-layout-effect@"1.1.0" from @radix-ui/react-avatar@1.1.1
+    node_modules/@radix-ui/react-avatar
+      @radix-ui/react-avatar@"^1.1.1" from the root project
+    @radix-ui/react-use-layout-effect@"1.1.0" from @radix-ui/react-id@1.1.0
+    node_modules/@radix-ui/react-id
+      @radix-ui/react-id@"1.1.0" from @radix-ui/react-select@2.1.2
+      node_modules/@radix-ui/react-select
+        @radix-ui/react-select@"^2.1.2" from the root project
+    @radix-ui/react-use-layout-effect@"1.1.0" from @radix-ui/react-popper@1.2.0
+    node_modules/@radix-ui/react-popper
+      @radix-ui/react-popper@"1.2.0" from @radix-ui/react-select@2.1.2
+      node_modules/@radix-ui/react-select
+        @radix-ui/react-select@"^2.1.2" from the root project
+    @radix-ui/react-use-layout-effect@"1.1.0" from @radix-ui/react-portal@1.1.2
+    node_modules/@radix-ui/react-portal
+      @radix-ui/react-portal@"1.1.2" from @radix-ui/react-select@2.1.2
+      node_modules/@radix-ui/react-select
+        @radix-ui/react-select@"^2.1.2" from the root project
+    @radix-ui/react-use-layout-effect@"1.1.0" from @radix-ui/react-select@2.1.2
+    node_modules/@radix-ui/react-select
+      @radix-ui/react-select@"^2.1.2" from the root project
+    @radix-ui/react-use-layout-effect@"1.1.0" from @radix-ui/react-use-size@1.1.0
+    node_modules/@radix-ui/react-use-size
+      @radix-ui/react-use-size@"1.1.0" from @radix-ui/react-popper@1.2.0
+      node_modules/@radix-ui/react-popper
+        @radix-ui/react-popper@"1.2.0" from @radix-ui/react-select@2.1.2
+        node_modules/@radix-ui/react-select
+          @radix-ui/react-select@"^2.1.2" from the root project
+  peer react@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-use-previous@1.1.0
+  node_modules/@radix-ui/react-use-previous
+    @radix-ui/react-use-previous@"1.1.0" from @radix-ui/react-select@2.1.2
+    node_modules/@radix-ui/react-select
+      @radix-ui/react-select@"^2.1.2" from the root project
+  peer react@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-use-rect@1.1.0
+  node_modules/@radix-ui/react-use-rect
+    @radix-ui/react-use-rect@"1.1.0" from @radix-ui/react-popper@1.2.0
+    node_modules/@radix-ui/react-popper
+      @radix-ui/react-popper@"1.2.0" from @radix-ui/react-select@2.1.2
+      node_modules/@radix-ui/react-select
+        @radix-ui/react-select@"^2.1.2" from the root project
+  peer react@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-use-size@1.1.0
+  node_modules/@radix-ui/react-use-size
+    @radix-ui/react-use-size@"1.1.0" from @radix-ui/react-popper@1.2.0
+    node_modules/@radix-ui/react-popper
+      @radix-ui/react-popper@"1.2.0" from @radix-ui/react-select@2.1.2
+      node_modules/@radix-ui/react-select
+        @radix-ui/react-select@"^2.1.2" from the root project
+  peer react@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-visually-hidden@1.1.0
+  node_modules/@radix-ui/react-visually-hidden
+    @radix-ui/react-visually-hidden@"1.1.0" from @radix-ui/react-select@2.1.2
+    node_modules/@radix-ui/react-select
+      @radix-ui/react-select@"^2.1.2" from the root project
+  peer react@"^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0-rc" from lucide-react@0.462.0
+  node_modules/lucide-react
+    lucide-react@"^0.462.0" from the root project
+  peer react@"^18.2.0 || 19.0.0-rc-66855b96-20241106" from next@15.0.3
+  node_modules/next
+    peer next@"^13.5.4 || ^14.0.3 || ^15.0.0" from @clerk/nextjs@6.5.1
+    node_modules/@clerk/nextjs
+      @clerk/nextjs@"^6.5.1" from the root project
+    peer next@"^12.2.5 || ^13 || ^14 || ^15" from @kinde-oss/kinde-auth-nextjs@2.4.6
+    node_modules/@kinde-oss/kinde-auth-nextjs
+      @kinde-oss/kinde-auth-nextjs@"^2.4.6" from the root project
+    peer next@"^13.5.4 || ^14 || ^15" from ezheaders@0.1.0
+    node_modules/ezheaders
+      ezheaders@"0.1.0" from @clerk/nextjs@6.5.1
+      node_modules/@clerk/nextjs
+        @clerk/nextjs@"^6.5.1" from the root project
+    next@"15.0.3" from the root project
+  peer react@"^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc" from next-themes@0.4.3
+  node_modules/next-themes
+    next-themes@"^0.4.3" from the root project
+  peer react@"19.0.0-rc-66855b96-20241106" from react-dom@19.0.0-rc-66855b96-20241106
+  node_modules/react-dom
+    peer react-dom@"^18 || ^19.0.0-0" from @clerk/clerk-react@5.17.1
+    node_modules/@clerk/clerk-react
+      @clerk/clerk-react@"5.17.1" from @clerk/nextjs@6.5.1
+      node_modules/@clerk/nextjs
+        @clerk/nextjs@"^6.5.1" from the root project
+    peer react-dom@"^18 || ^19.0.0-0" from @clerk/nextjs@6.5.1
+    node_modules/@clerk/nextjs
+      @clerk/nextjs@"^6.5.1" from the root project
+    peerOptional react-dom@"^18 || ^19.0.0-0" from @clerk/shared@2.17.0
+    node_modules/@clerk/shared
+      @clerk/shared@"2.17.0" from @clerk/backend@1.18.0
+      node_modules/@clerk/backend
+        @clerk/backend@"1.18.0" from @clerk/nextjs@6.5.1
+        node_modules/@clerk/nextjs
+          @clerk/nextjs@"^6.5.1" from the root project
+      @clerk/shared@"2.17.0" from @clerk/clerk-react@5.17.1
+      node_modules/@clerk/clerk-react
+        @clerk/clerk-react@"5.17.1" from @clerk/nextjs@6.5.1
+        node_modules/@clerk/nextjs
+          @clerk/nextjs@"^6.5.1" from the root project
+      @clerk/shared@"2.17.0" from @clerk/nextjs@6.5.1
+      node_modules/@clerk/nextjs
+        @clerk/nextjs@"^6.5.1" from the root project
+    peer react-dom@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-arrow@1.1.0
+    node_modules/@radix-ui/react-arrow
+      @radix-ui/react-arrow@"1.1.0" from @radix-ui/react-popper@1.2.0
+      node_modules/@radix-ui/react-popper
+        @radix-ui/react-popper@"1.2.0" from @radix-ui/react-select@2.1.2
+        node_modules/@radix-ui/react-select
+          @radix-ui/react-select@"^2.1.2" from the root project
+    peer react-dom@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-avatar@1.1.1
+    node_modules/@radix-ui/react-avatar
+      @radix-ui/react-avatar@"^1.1.1" from the root project
+    peer react-dom@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-collection@1.1.0
+    node_modules/@radix-ui/react-collection
+      @radix-ui/react-collection@"1.1.0" from @radix-ui/react-select@2.1.2
+      node_modules/@radix-ui/react-select
+        @radix-ui/react-select@"^2.1.2" from the root project
+    peer react-dom@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-dismissable-layer@1.1.1
+    node_modules/@radix-ui/react-dismissable-layer
+      @radix-ui/react-dismissable-layer@"1.1.1" from @radix-ui/react-select@2.1.2
+      node_modules/@radix-ui/react-select
+        @radix-ui/react-select@"^2.1.2" from the root project
+    peer react-dom@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-focus-scope@1.1.0
+    node_modules/@radix-ui/react-focus-scope
+      @radix-ui/react-focus-scope@"1.1.0" from @radix-ui/react-select@2.1.2
+      node_modules/@radix-ui/react-select
+        @radix-ui/react-select@"^2.1.2" from the root project
+    peer react-dom@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-label@2.1.0
+    node_modules/@radix-ui/react-label
+      @radix-ui/react-label@"^2.1.0" from the root project
+    peer react-dom@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-popper@1.2.0
+    node_modules/@radix-ui/react-popper
+      @radix-ui/react-popper@"1.2.0" from @radix-ui/react-select@2.1.2
+      node_modules/@radix-ui/react-select
+        @radix-ui/react-select@"^2.1.2" from the root project
+    peer react-dom@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-portal@1.1.2
+    node_modules/@radix-ui/react-portal
+      @radix-ui/react-portal@"1.1.2" from @radix-ui/react-select@2.1.2
+      node_modules/@radix-ui/react-select
+        @radix-ui/react-select@"^2.1.2" from the root project
+    peer react-dom@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-primitive@2.0.0
+    node_modules/@radix-ui/react-primitive
+      @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-arrow@1.1.0
+      node_modules/@radix-ui/react-arrow
+        @radix-ui/react-arrow@"1.1.0" from @radix-ui/react-popper@1.2.0
+        node_modules/@radix-ui/react-popper
+          @radix-ui/react-popper@"1.2.0" from @radix-ui/react-select@2.1.2
+          node_modules/@radix-ui/react-select
+            @radix-ui/react-select@"^2.1.2" from the root project
+      @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-avatar@1.1.1
+      node_modules/@radix-ui/react-avatar
+        @radix-ui/react-avatar@"^1.1.1" from the root project
+      @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-collection@1.1.0
+      node_modules/@radix-ui/react-collection
+        @radix-ui/react-collection@"1.1.0" from @radix-ui/react-select@2.1.2
+        node_modules/@radix-ui/react-select
+          @radix-ui/react-select@"^2.1.2" from the root project
+      @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-dismissable-layer@1.1.1
+      node_modules/@radix-ui/react-dismissable-layer
+        @radix-ui/react-dismissable-layer@"1.1.1" from @radix-ui/react-select@2.1.2
+        node_modules/@radix-ui/react-select
+          @radix-ui/react-select@"^2.1.2" from the root project
+      @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-focus-scope@1.1.0
+      node_modules/@radix-ui/react-focus-scope
+        @radix-ui/react-focus-scope@"1.1.0" from @radix-ui/react-select@2.1.2
+        node_modules/@radix-ui/react-select
+          @radix-ui/react-select@"^2.1.2" from the root project
+      @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-label@2.1.0
+      node_modules/@radix-ui/react-label
+        @radix-ui/react-label@"^2.1.0" from the root project
+      @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-popper@1.2.0
+      node_modules/@radix-ui/react-popper
+        @radix-ui/react-popper@"1.2.0" from @radix-ui/react-select@2.1.2
+        node_modules/@radix-ui/react-select
+          @radix-ui/react-select@"^2.1.2" from the root project
+      @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-portal@1.1.2
+      node_modules/@radix-ui/react-portal
+        @radix-ui/react-portal@"1.1.2" from @radix-ui/react-select@2.1.2
+        node_modules/@radix-ui/react-select
+          @radix-ui/react-select@"^2.1.2" from the root project
+      @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-select@2.1.2
+      node_modules/@radix-ui/react-select
+        @radix-ui/react-select@"^2.1.2" from the root project
+      @radix-ui/react-primitive@"2.0.0" from @radix-ui/react-visually-hidden@1.1.0
+      node_modules/@radix-ui/react-visually-hidden
+        @radix-ui/react-visually-hidden@"1.1.0" from @radix-ui/react-select@2.1.2
+        node_modules/@radix-ui/react-select
+          @radix-ui/react-select@"^2.1.2" from the root project
+    peer react-dom@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-select@2.1.2
+    node_modules/@radix-ui/react-select
+      @radix-ui/react-select@"^2.1.2" from the root project
+    peer react-dom@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-visually-hidden@1.1.0
+    node_modules/@radix-ui/react-visually-hidden
+      @radix-ui/react-visually-hidden@"1.1.0" from @radix-ui/react-select@2.1.2
+      node_modules/@radix-ui/react-select
+        @radix-ui/react-select@"^2.1.2" from the root project
+    peer react-dom@"^18.2.0 || 19.0.0-rc-66855b96-20241106" from next@15.0.3
+    node_modules/next
+      peer next@"^13.5.4 || ^14.0.3 || ^15.0.0" from @clerk/nextjs@6.5.1
+      node_modules/@clerk/nextjs
+        @clerk/nextjs@"^6.5.1" from the root project
+      peer next@"^12.2.5 || ^13 || ^14 || ^15" from @kinde-oss/kinde-auth-nextjs@2.4.6
+      node_modules/@kinde-oss/kinde-auth-nextjs
+        @kinde-oss/kinde-auth-nextjs@"^2.4.6" from the root project
+      peer next@"^13.5.4 || ^14 || ^15" from ezheaders@0.1.0
+      node_modules/ezheaders
+        ezheaders@"0.1.0" from @clerk/nextjs@6.5.1
+        node_modules/@clerk/nextjs
+          @clerk/nextjs@"^6.5.1" from the root project
+      next@"15.0.3" from the root project
+    peer react-dom@"^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc" from next-themes@0.4.3
+    node_modules/next-themes
+      next-themes@"^0.4.3" from the root project
+    peer react-dom@"^18.0.0 || ^19.0.0 || ^19.0.0-rc" from sonner@1.7.0
+    node_modules/sonner
+      sonner@"^1.7.0" from the root project
+    react-dom@"19.0.0-rc-66855b96-20241106" from the root project
+  peer react@"^18.0.0 || ^19.0.0 || ^19.0.0-rc" from sonner@1.7.0
+  node_modules/sonner
+    sonner@"^1.7.0" from the root project
+  peer react@">= 16.8.0 || 17.x.x || ^18.0.0-0 || ^19.0.0-0" from styled-jsx@5.1.6
+  node_modules/styled-jsx
+    styled-jsx@"5.1.6" from next@15.0.3
+    node_modules/next
+      peer next@"^13.5.4 || ^14.0.3 || ^15.0.0" from @clerk/nextjs@6.5.1
+      node_modules/@clerk/nextjs
+        @clerk/nextjs@"^6.5.1" from the root project
+      peer next@"^12.2.5 || ^13 || ^14 || ^15" from @kinde-oss/kinde-auth-nextjs@2.4.6
+      node_modules/@kinde-oss/kinde-auth-nextjs
+        @kinde-oss/kinde-auth-nextjs@"^2.4.6" from the root project
+      peer next@"^13.5.4 || ^14 || ^15" from ezheaders@0.1.0
+      node_modules/ezheaders
+        ezheaders@"0.1.0" from @clerk/nextjs@6.5.1
+        node_modules/@clerk/nextjs
+          @clerk/nextjs@"^6.5.1" from the root project
+      next@"15.0.3" from the root project
+  react@"19.0.0-rc-66855b96-20241106" from the root project
+
+Could not resolve dependency:
+peer react@"^18 || ^19" from @kinde-oss/kinde-auth-nextjs@2.4.6
+node_modules/@kinde-oss/kinde-auth-nextjs
+  @kinde-oss/kinde-auth-nextjs@"^2.4.6" from the root project
+
+Conflicting peer dependency: react@18.3.1
+node_modules/react
+  peer react@"^18 || ^19" from @kinde-oss/kinde-auth-nextjs@2.4.6
+  node_modules/@kinde-oss/kinde-auth-nextjs
+    @kinde-oss/kinde-auth-nextjs@"^2.4.6" from the root project
+
+Fix the upstream dependency conflict, or retry
+this command with --force or --legacy-peer-deps
+to accept an incorrect (and potentially broken) dependency resolution.
