@@ -1,4 +1,5 @@
 # Build stage
+# 18 version is used
 FROM node:18-alpine AS builder
 
 WORKDIR /app
@@ -30,6 +31,7 @@ ENV DATABASE_URL=$DATABASE_URL
 ENV DIRECT_URL=$DIRECT_URL
 
 # Copy package files
+# commands
 COPY package*.json ./
 COPY tsconfig.json ./
 
